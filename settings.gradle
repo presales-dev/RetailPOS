@@ -1,0 +1,3 @@
+include ':ePOSEasySelect'
+include ':ePOS2'
+include ':app'

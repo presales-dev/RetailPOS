@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Epson Retail POS</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="handlingmsg_warn_receipt_near_end">Roll paper is nearly end.\n</string>
+    <string name="handlingmsg_warn_battery_near_end">Battery level of printer is low.\n</string>
+    <string name="handlingmsg_err_no_response">Please check the connection of the printer and the mobile terminal.\nConnection get lost.\n</string>
+    <string name="handlingmsg_err_cover_open">Please close roll paper cover.\n</string>
+    <string name="handlingmsg_err_receipt_end">Please check roll paper.\n</string>
+    <string name="handlingmsg_err_paper_feed">Please release a paper feed switch.\n</string>
+    <string name="handlingmsg_err_autocutter">Please remove jammed paper and close roll paper cover.\nRemove any jammed paper or foreign substances in the printer, and then turn the printer off and turn the printer on again.\n</string>
+    <string name="handlingmsg_err_need_recover">Then, If the printer doesn\'t recover from error, please restart the printer.\n</string>
+    <string name="handlingmsg_err_unrecover">Please restart the printer.\nIf same errors occurred after printer restarted, the printer may out of order.</string>
+    <string name="handlingmsg_err_overheat">Please wait until error LED of the printer turns off. \n</string>
+    <string name="handlingmsg_err_head">Print head of printer is hot.\n</string>
+    <string name="handlingmsg_err_motor">Motor Driver IC of printer is hot.\n</string>
+    <string name="handlingmsg_err_battery">Battery of printer is hot.\n</string>
+    <string name="handlingmsg_err_wrong_paper">Please set correct roll paper.\n</string>
+    <string name="handlingmsg_err_battery_real_end">Please connect AC adapter or change the battery.\nBattery of printer is almost empty.\n</string>
+    <string name="handlingmsg_err_offline">Printer is offline.\n</string>
+    <string name="btn_maintenance_counter_and_printer_setting">Maintenance Counter &amp; Printer Setting</string>
+    <string name="btn_firmware_update">Firmware Update</string>
+    <string name="progress_msg">Please wait...</string>
+    <string name="error_msg">Unexpected Error Occurred.\nStart Over Again.</string>
+    <string name="error_msg_firm_update">Setting API do not support POS terminal model</string>
+    <string name="note1_1">The time required to update depends on the interface.</string>
+    <string name="note1_2">About 15 minutes for a network connection</string>
+    <string name="note1_3">About 85 minutes for a Bluetooth connection</string>
+    <string name="note2">You cannot stop the update once it has started.</string>
+    <string name="note3">Check that the smart device is charged sufficiently.</string>
+    <string name="note4">Check that no errors have occurred in the printer.</string>
+    <string name="note5">Check that the printer\'s communication status is in good condition.</string>
+    <string name="note6">Do not operate the smart device while updating the firmware.</string>
+    <string name="note7">Do not turn off the printer while updating the firmware.</string>
+    <string name="note8">Do not disconnect the connection cable and power cable while updating the firmware.</string>
+    <string name="note9">Do not sleep the smart device while updating the firmware.</string>
+    <string name="reconnect_message">Reconnecting Printer.</string>
+    <string name="verify_message">Verify Firmware version.</string>
+    <string name="title_firmware_update">Firmware Update</string>
+    <string name="title_current_firmware">Current Firmware</string>
+    <string name="title_target_firmware">Target Firmware</string>
+    <string name="title_printer_model">Printer Model</string>
+    <string name="title_firmware_list">Firmware List</string>
+    <string name="btn_get_printer_firmware">Get Printer Firmware</string>
+    <string name="btn_download_firmware_list">Download Firmware List</string>
+    <string name="btn_update_firmware">Update Firmware</string>
+    <string name="default_printerModel">TM-m10</string>
+
+    <string name="test_comm">Printer Communication Test is Successful!</string>
+
+    <string name="denomination1">2</string>
+    <string name="denomination2">5</string>
+    <string name="denomination3">10</string>
+    <string name="denomination4">50</string>
+    <string name="denomination5">100</string>
+
+    <string name="currency">S$</string>
+</resources>

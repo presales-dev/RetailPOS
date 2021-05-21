@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dfit.dfpos">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".CetakStruk">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+				<action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+			<meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+                android:resource="@xml/accessory_filter" />
+        </activity>
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AddPrinterActivity">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+				<action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+			<meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+                android:resource="@xml/accessory_filter" />
+        </activity>
+        <activity android:name=".DiscoveryActivity" />
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".PersediaanActivity" />
+        <activity android:name=".PembelianActivity" />
+        <activity android:name=".PenjualanActivity" />
+        <activity android:name=".CatatanActivity" />
+        <activity android:name=".TambahPersediaanActivity" />
+        <activity android:name=".TambahPembelianActivity" />
+        <activity android:name=".CariBarangActivity" />
+        <activity android:name=".TambahPenjualanActivity" />
+        <activity android:name=".BarcodeActivity" />
+        <activity android:name=".CameraActivity" />
+        <activity android:name=".RacikActivity" />
+        <activity android:name=".PosBarcodeActivity" />
+        <activity android:name=".LaporanActivity" />
+        <activity android:name=".LihatLaporanActivity" />
+        <activity android:name=".PengaturanActivity" />
+        <activity android:name=".InfoUsahaActivity" />
+        <activity android:name=".PenggunaActivity" />
+        <activity android:name=".PrinterActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LaporanPenjualanActivity" />
+        <activity android:name=".LaporanPembelianActivity" />
+        <activity android:name=".LaporanStokActivity" />
+        <activity android:name=".LaporanRankingActivity" />
+        <activity android:name=".LaporanMarginActivity" />
+    </application>
+
+</manifest>
