@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,9 +42,35 @@ public class RegisterActivity extends AppCompatActivity {
         bsimpan=findViewById(R.id.bsimpan);
         bserial=findViewById(R.id.btCekSerial);
         dbo=new Dblocalhelper(this);
+
+        aggreementpopup();
         simpan();
     }
 
+    public void aggreementpopup(){
+
+        AlertDialog.Builder ad = new AlertDialog.Builder(this);
+        //ad.setIcon(R.drawable.icon);
+        ad.setTitle("Terms of Use");
+        ad.setView(LayoutInflater.from(this).inflate(R.layout.aggrement_popup,null));
+        ad.setCancelable(false);
+        ad.setPositiveButton("Agree",
+                new android.content.DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int arg1) {
+                        // OK, go back to Main menu
+                    }
+                }
+        );
+
+        ad.setNegativeButton("Disagree", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                System.exit(0);
+            }
+        });
+
+        ad.show();
+    }
     private void simpan(){
         bserial.setOnClickListener(new View.OnClickListener() {
             @Override
