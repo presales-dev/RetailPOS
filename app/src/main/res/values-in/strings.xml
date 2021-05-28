@@ -56,59 +56,59 @@
     <string name="btn_get_printer_firmware">Get Printer Firmware</string>
     <string name="btn_download_firmware_list">Download Firmware List</string>
     <string name="btn_update_firmware">Update Firmware</string>
-    <string name="default_printerModel">TM-m10</string>
+    <string name="default_printerModel">TM-T82X</string>
 
     <string name="test_comm">Printer Communication Test is Successful!</string>
 
     <!-- string related to UI-->
     <!-- Registration Form-->
-    <string name="registration_form_title">Registration Form</string>
-    <string name="registration_form_company_name">Company Name</string>
-    <string name="registration_form_address">Address</string>
-    <string name="registration_form_hp_no">Handphone No.</string>
+    <string name="registration_form_title">Form Registrasi</string>
+    <string name="registration_form_company_name">Nama Perusahaan</string>
+    <string name="registration_form_address">Alamat</string>
+    <string name="registration_form_hp_no">No Handphone</string>
     <string name="registration_form_email">Email</string>
-    <string name="registration_form_serial_no">Serial Number</string>
-    <string name="registration_form_verify_serial_no">Verify Serial Number</string>
+    <string name="registration_form_serial_no">Serial</string>
+    <string name="registration_form_verify_serial_no">Cek Serial</string>
     <string name="registration_form_username">Username</string>
     <string name="registration_form_password">Password</string>
-    <string name="registration_form_confirm_password">Confirm Password</string>
+    <string name="registration_form_confirm_password">Konfirmasi Password</string>
     <string name="registration_form_register">Register</string>
 
     <!--Search for Stock-->
-    <string name="stock_search_form_title">Search for Stock</string>
+    <string name="stock_search_form_title">Cari Persediaan</string>
 
     <!--Print Receipt-->
-    <string name="print_receipt">Print Receipt</string>
+    <string name="print_receipt">Print Struk</string>
 
     <!--Company Information-->
-    <string name="company_info_title">Company Information</string>
-    <string name="company_info_save">Save</string>
+    <string name="company_info_title">Informasi Perusahaan</string>
+    <string name="company_info_save">Simpan</string>
     <string name="company_info_website">Website</string>
 
     <!--Report-->
-    <string name="report_title">Report</string>
-    <string name="report_category">Report Category</string>
-    <string name="report_margin_title">Margin Report</string>
-    <string name="report_from_date">From Date</string>
-    <string name="report_to_date">To Date</string>
-    <string name="report_trans_no">Trans No</string>
-    <string name="report_name">Name</string>
-    <string name="report_amount">Amount</string>
-    <string name="report_sales">Sales</string>
-    <string name="report_buy">Buy</string>
-    <string name="report_profit">Profit</string>
-    <string name="report_total_sales">Total Sales</string>
-    <string name="report_total_capital">Total Capital</string>
-    <string name="report_total_profit">Total Profit</string>
+    <string name="report_title">Laporan</string>
+    <string name="report_category">Kategori Laporan</string>
+    <string name="report_margin_title">Laporan Margin</string>
+    <string name="report_from_date">Tanggal Dari</string>
+    <string name="report_to_date">Tanggal Hingga</string>
+    <string name="report_trans_no">No Trans</string>
+    <string name="report_name">Nama</string>
+    <string name="report_amount">Jumlah</string>
+    <string name="report_sales">Jual</string>
+    <string name="report_buy">Modal</string>
+    <string name="report_profit">Laba</string>
+    <string name="report_total_capital">Total Modal</string>
+    <string name="report_total_sales">Total Penjualan</string>
+    <string name="report_total_profit">Total Laba</string>
     <string name="report_export">Export</string>
 
-    <string name="denomination1">2</string>
-    <string name="denomination2">5</string>
-    <string name="denomination3">10</string>
-    <string name="denomination4">50</string>
-    <string name="denomination5">100</string>
+    <string name="denomination1">1000</string>
+    <string name="denomination2">5000</string>
+    <string name="denomination3">10000</string>
+    <string name="denomination4">50000</string>
+    <string name="denomination5">100000</string>
 
-    <string name="currency">$</string>
+    <string name="currency">Rp.</string>
     <string name="termsofuse">
 These Terms of Use, together with the documents referenced herein (collectively the "Terms"), apply to the mobile application named "Retail POS" (the "App"). PT Epson Indonesia (hereinafter referred to as "EIN" and/or "we") permits you to use the App in connection with the use of the Epson TM Printer (the “Purpose”) and subject to these Terms and any applicable rules applied by and Google Inc. ("Play Store Rules") with respect to the use of the Google Play Store (the “Play Store”). You (hereinafter referred to as "you" and/or the “App user”) may only use the App in accordance with these Terms.
 
@@ -228,4 +228,5 @@ These Terms of Use, together with the documents referenced herein (collectively 
 
 18.6 	We are an independent contractor and no agency, partnership, joint venture or employment relationship is created as a result of these Terms. Neither of us has any authority of any kind to bind the other in any respect.
 </string>
+
 </resources>

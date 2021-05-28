@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Search for Stock"
+        android:text="@string/stock_search_form_title"
         android:textColor="#ffffff"
         android:textSize="17sp"
         android:textStyle="bold"
