@@ -89,18 +89,79 @@
     <string name="report_title">Laporan</string>
     <string name="report_category">Kategori Laporan</string>
     <string name="report_margin_title">Laporan Margin</string>
+    <string name="report_purchase_title">Laporan Pembelian</string>
+    <string name="report_sales_title">Laporan Penjualan</string>
+    <string name="report_ranking_title">Laporan Ranking</string>
+    <string name="report_inventory_title">Laporan Stok</string>
+    <string name="report_date">Tanggal</string>
     <string name="report_from_date">Tanggal Dari</string>
     <string name="report_to_date">Tanggal Hingga</string>
     <string name="report_trans_no">No Trans</string>
+    <string name="report_trans_code">Kode Trans</string>
     <string name="report_name">Nama</string>
     <string name="report_amount">Jumlah</string>
     <string name="report_sales">Jual</string>
+    <string name="report_ranking_sold">Terjual</string>
+    <string name="report_ranking_code">Kode</string>
     <string name="report_buy">Modal</string>
     <string name="report_profit">Laba</string>
+    <string name="report_total">Total</string>
     <string name="report_total_capital">Total Modal</string>
     <string name="report_total_sales">Total Penjualan</string>
     <string name="report_total_profit">Total Laba</string>
     <string name="report_export">Export</string>
+
+    <!--Main Screen-->
+    <string name="main_total_sales">Total Penjualan</string>
+    <string name="main_inventory">Persediaan</string>
+    <string name="main_sales">Penjualan</string>
+    <string name="main_setting">Pengaturan</string>
+    <string name="main_report">Laporan</string>
+    <string name="main_exit">Keluar</string>
+
+    <!--Login Screen-->
+    <string name="username_email">Username Atau Email</string>
+    <string name="login">Masuk</string>
+    <string name="login_to_application">Masuk ke Aplikasi</string>
+    <string name="do_not_have_account">Belum Punya Akun?</string>
+
+    <!--purchasing screen-->
+    <string name="purchasing_title">Pembelian</string>
+
+    <!--Setting screen-->
+    <string name="setting_title">Pengaturan</string>
+    <string name="setting_big_title">Pengaturan Aplikasi</string>
+
+    <!--Account registratio/Daftar Pengguna-->
+    <string name="user_account">Pengguna</string>
+    <string name="user_account_registration">Daftar Pengguna</string>
+
+    <!--Sales Record-->
+    <string name="sales_record_title">Penjualan</string>
+
+    <!--Month-->
+    <string name="January">Januari</string>
+    <string name="February">Februari</string>
+    <string name="March">Maret</string>
+    <string name="April">April</string>
+    <string name="May">Mei</string>
+    <string name="June">Juni</string>
+    <string name="July">Juli</string>
+    <string name="August">Agustus</string>
+    <string name="September">September</string>
+    <string name="October">Oktober</string>
+    <string name="November">November</string>
+    <string name="December">Desember</string>
+
+    <!--Toast messages-->
+    <string name="process_rejected">Process ditolak, anda tidak memiliki akses</string>
+
+    <!--alert dialog message-->
+    <string name="alert_dialog_Confirmation">Konfirmasi</string>
+    <string name="alert_dialog_main_exit">Anda ingin keluar dari aplikasi ?</string>
+    <string name="alert_dialog_yes">Ya</string>
+    <string name="alert_dialog_no">Tidak</string>
+    <string name="alert_dialog_cancel">Batal</string>
 
     <string name="denomination1">1000</string>
     <string name="denomination2">5000</string>

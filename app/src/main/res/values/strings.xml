@@ -89,18 +89,79 @@
     <string name="report_title">Report</string>
     <string name="report_category">Report Category</string>
     <string name="report_margin_title">Margin Report</string>
+    <string name="report_purchase_title">Purchase Report</string>
+    <string name="report_sales_title">Sales Report</string>
+    <string name="report_ranking_title">Ranking Report</string>
+    <string name="report_inventory_title">Inventory Report</string>
+    <string name="report_date">Date</string>
     <string name="report_from_date">From Date</string>
     <string name="report_to_date">To Date</string>
     <string name="report_trans_no">Trans No</string>
+    <string name="report_trans_code">Trans Code</string>
     <string name="report_name">Name</string>
     <string name="report_amount">Amount</string>
     <string name="report_sales">Sales</string>
+    <string name="report_ranking_sold">Sold</string>
+    <string name="report_ranking_code">Code</string>
     <string name="report_buy">Buy</string>
     <string name="report_profit">Profit</string>
+    <string name="report_total">Total</string>
     <string name="report_total_sales">Total Sales</string>
     <string name="report_total_capital">Total Capital</string>
     <string name="report_total_profit">Total Profit</string>
     <string name="report_export">Export</string>
+
+    <!--Main Screen-->
+    <string name="main_total_sales">Total Sales</string>
+    <string name="main_inventory">Inventory</string>
+    <string name="main_sales">Sales</string>
+    <string name="main_setting">Setting</string>
+    <string name="main_report">Report</string>
+    <string name="main_exit">Exit</string>
+
+    <!--Login Screen-->
+    <string name="username_email">Username or Email</string>
+    <string name="login">Login</string>
+    <string name="login_to_application">Login to Application</string>
+    <string name="do_not_have_account">Do Not Have Account?</string>
+
+    <!--purchasing screen-->
+    <string name="purchasing_title">Purchasing</string>
+
+    <!--Setting screen-->
+    <string name="setting_title">Settings</string>
+    <string name="setting_big_title">Application Settings</string>
+
+    <!--Account registration/Daftar Pengguna-->
+    <string name="user_account">User Account</string>
+    <string name="user_account_registration">User Account Registration</string>
+
+    <!--Sales Record-->
+    <string name="sales_record_title">Sales Record</string>
+
+    <!--Month-->
+    <string name="January">January</string>
+    <string name="February">February</string>
+    <string name="March">March</string>
+    <string name="April">April</string>
+    <string name="May">May</string>
+    <string name="June">June</string>
+    <string name="July">July</string>
+    <string name="August">August</string>
+    <string name="September">September</string>
+    <string name="October">October</string>
+    <string name="November">November</string>
+    <string name="December">December</string>
+
+    <!--Toast messages-->
+    <string name="process_rejected">Process rejected, you do not have the access right</string>
+
+    <!--alert dialog message-->
+    <string name="alert_dialog_Confirmation">Confirmation</string>
+    <string name="alert_dialog_main_exit">Do you want to exit the application ?</string>
+    <string name="alert_dialog_yes">Yes</string>
+    <string name="alert_dialog_no">No</string>
+    <string name="alert_dialog_cancel">Cancel</string>
 
     <string name="denomination1">2</string>
     <string name="denomination2">5</string>

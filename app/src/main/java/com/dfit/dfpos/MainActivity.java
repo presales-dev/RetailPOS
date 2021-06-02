@@ -114,40 +114,40 @@ public class MainActivity extends AppCompatActivity {
 
         switch (bulanangka) {
             case "01":
-                bulan = "January";
+                bulan = getResources().getString(R.string.January);
                 break;
             case "02":
-                bulan = "February";
+                bulan = getResources().getString(R.string.February);
                 break;
             case "03":
-                bulan = "March";
+                bulan = getResources().getString(R.string.March);
                 break;
             case "04":
-                bulan = "April";
+                bulan = getResources().getString(R.string.April);
                 break;
             case "05":
-                bulan = "May";
+                bulan = getResources().getString(R.string.May);
                 break;
             case "06":
-                bulan = "June";
+                bulan = getResources().getString(R.string.June);
                 break;
             case "07":
-                bulan = "July";
+                bulan = getResources().getString(R.string.July);
                 break;
             case "08":
-                bulan = "August";
+                bulan = getResources().getString(R.string.August);
                 break;
             case "09":
-                bulan = "September";
+                bulan = getResources().getString(R.string.September);
                 break;
             case "10":
-                bulan = "October";
+                bulan = getResources().getString(R.string.October);
                 break;
             case "11":
-                bulan = "November";
+                bulan = getResources().getString(R.string.November);
                 break;
             case "12":
-                bulan = "December";
+                bulan = getResources().getString(R.string.December);
                 break;
 
         }
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent in = new Intent(MainActivity.this, PersediaanActivity.class);
                     startActivity(in);
                 }else{
-                    Toast.makeText(MainActivity.this, "Process rejected, you do not have the access right", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getResources().getText(R.string.process_rejected), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent in = new Intent(MainActivity.this, PembelianActivity.class);
                     startActivity(in);
                 }else{
-                    Toast.makeText(MainActivity.this, "Process rejected, you do not have the access right", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getResources().getText(R.string.process_rejected), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent in = new Intent(MainActivity.this, PenjualanActivity.class);
                     startActivity(in);
                 }else{
-                    Toast.makeText(MainActivity.this, "Process rejected, you do not have the access right", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getResources().getText(R.string.process_rejected), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent in = new Intent(MainActivity.this, LaporanActivity.class);
                     startActivity(in);
                 }else{
-                    Toast.makeText(MainActivity.this, "Process rejected, you do not have the access right", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getResources().getText(R.string.process_rejected), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -252,16 +252,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder adb=new AlertDialog.Builder(MainActivity.this);
-                adb.setTitle("Confirmation");
-                adb.setMessage("Do you want to exit the application ?");
-                adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                adb.setTitle(getResources().getString(R.string.alert_dialog_Confirmation));
+                adb.setMessage(getResources().getString(R.string.alert_dialog_main_exit));
+                adb.setPositiveButton(getResources().getText(R.string.alert_dialog_yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         System.exit(0);
                     }
                 });
 
-                adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                adb.setNegativeButton(getResources().getString(R.string.alert_dialog_cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -279,16 +279,16 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         AlertDialog.Builder adb=new AlertDialog.Builder(MainActivity.this);
-        adb.setTitle("Confirmation");
-        adb.setMessage("Do you want to exit the application ?");
-        adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        adb.setTitle(getResources().getString(R.string.alert_dialog_Confirmation));
+        adb.setMessage(getResources().getString(R.string.alert_dialog_main_exit));
+        adb.setPositiveButton(getResources().getString(R.string.alert_dialog_yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 System.exit(0);
             }
         });
 
-        adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        adb.setNegativeButton(getResources().getString(R.string.alert_dialog_cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
