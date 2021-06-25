@@ -110,6 +110,7 @@
     <string name="report_total_capital">Total Capital</string>
     <string name="report_total_profit">Total Profit</string>
     <string name="report_export">Export</string>
+    <string name="report_price">Price</string>
 
     <!--Main Screen-->
     <string name="main_total_sales">Total Sales</string>
@@ -139,6 +140,53 @@
     <!--Sales Record-->
     <string name="sales_record_title">Sales Record</string>
 
+    <!--activity racik-->
+    <string name="racik_total_cost">Total Cost</string>
+
+    <!--Purchase activity_tambah_pembelian-->
+    <string name="purchase_title">Purchase</string>
+    <string name="purchase_transaction_no">Transaction No.</string>
+    <string name="purchase_invoice_no">Invoice No.</string>
+    <string name="purchase_invoice">Invoice</string>
+    <string name="purchase_date">Purchase Date</string>
+    <string name="purchase_description">Description</string>
+    <string name="purchase_item_code">Item Code</string>
+    <string name="purchase_message">Purchased from Pt. Inka, Invoice No. 12039 </string>
+    <string name="purchase_total_message">Total : $129.00"</string>
+    <string name="add_item_message">Change Price and Quantity</string>
+
+    <!--Point of Sales activity_tambah_penjualan-->
+    <string name="pos_transaction_no">Transaction No.</string>
+    <string name="pos_simpan">Hold Transaction</string>
+    <string name="pos_bayar">Pay</string>
+    <string name="pos_edit_message">Change Amount and Discount </string>
+
+    <!--Add Item activity_tambah_persediaan-->
+    <string name="add_item_title">Add Item</string>
+    <string name="add_item_name">Item Name</string>
+    <string name="add_item_purchase_price_cost">Purchased Price / Cost</string>
+    <string name="add_item_selling_price">Selling Price</string>
+    <string name="add_item_discount">Discount (%)</string>
+    <string name="add_item_inventory_type">Inventory Type</string>
+    <string name="add_item_unit">Unit</string>
+    <string name="add_item_stock">Stock</string>
+
+    <!--Find Item activity_cari_barang-->
+    <string name="find_item_name">Item Name</string>
+
+    <!-- Payment bayar_layout -->
+    <string name="payment_change">Change</string>
+    <string name="payment_total">Total</string>
+    <string name="payment_ok">OK</string>
+    <string name="payment_pass">PASS</string>
+    <string name="payment_total_money">Total Cash</string>
+
+    <!--General Adapter-->
+    <string name="title">Title</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="delete">Delete</string>
+    <string name="Concoct">Concoct</string>
+
     <!--Month-->
     <string name="January">January</string>
     <string name="February">February</string>
@@ -163,11 +211,11 @@
     <string name="alert_dialog_no">No</string>
     <string name="alert_dialog_cancel">Cancel</string>
 
-    <string name="denomination1">2</string>
-    <string name="denomination2">5</string>
-    <string name="denomination3">10</string>
-    <string name="denomination4">50</string>
-    <string name="denomination5">100</string>
+    <string name="denomination1">2.00</string>
+    <string name="denomination2">5.00</string>
+    <string name="denomination3">10.00</string>
+    <string name="denomination4">50.00</string>
+    <string name="denomination5">100.00</string>
 
     <string name="currency">$</string>
     <string name="termsofuse">

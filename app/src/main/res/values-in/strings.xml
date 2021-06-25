@@ -110,6 +110,7 @@
     <string name="report_total_sales">Total Penjualan</string>
     <string name="report_total_profit">Total Laba</string>
     <string name="report_export">Export</string>
+    <string name="report_price">Harga</string>
 
     <!--Main Screen-->
     <string name="main_total_sales">Total Penjualan</string>
@@ -138,6 +139,53 @@
 
     <!--Sales Record-->
     <string name="sales_record_title">Penjualan</string>
+
+    <!--activity racik-->
+    <string name="racik_total_cost">Total Biaya</string>
+
+    <!--Purchase activity_tambah_pembelian-->
+    <string name="purchase_title">Transaksi Pembelian</string>
+    <string name="purchase_transaction_no">No. Transaksi</string>
+    <string name="purchase_invoice_no">No. Faktur</string>
+    <string name="purchase_invoice">Faktur</string>
+    <string name="purchase_date">Tanggal Transaksi</string>
+    <string name="purchase_description">Deskripsi</string>
+    <string name="purchase_item_code">Kode Barang</string>
+    <string name="purchase_message">pembelian dari pt inka, no faktur 12039 </string>
+    <string name="purchase_total_message">Jumlah : Rp. 120.000"</string>
+    <string name="add_item_message">Ubah Harga Dan Jumlah</string>
+
+    <!--Point of Sales activity_tambah_penjualan-->
+    <string name="pos_transaction_no">No. Transaksi</string>
+    <string name="pos_simpan">Pending</string>
+    <string name="pos_bayar">Bayar</string>
+    <string name="pos_edit_message">Ubah Jumlah dan Diskon </string>
+
+    <!--Add Item activity_tambah_persediaan-->
+    <string name="add_item_title">Tambah Barang</string>
+    <string name="add_item_name">Nama Barang</string>
+    <string name="add_item_purchase_price_cost">Harga Beli / Harga Modal</string>
+    <string name="add_item_selling_price">Harga Jual</string>
+    <string name="add_item_discount">Diskon (%)</string>
+    <string name="add_item_inventory_type">Tipe Persediaan</string>
+    <string name="add_item_unit">Satuan</string>
+    <string name="add_item_stock">Stok</string>
+
+    <!--Find Item activity_cari_barang-->
+    <string name="find_item_name">Name Barang Belanjaan</string>
+
+    <!-- Payment bayar_layout -->
+    <string name="payment_change">Kembalian</string>
+    <string name="payment_total">Total Belanja</string>
+    <string name="payment_ok">Oke</string>
+    <string name="payment_pass">PAS</string>
+    <string name="payment_total_money">Jumlah Uang</string>
+
+    <!--General Adapter-->
+    <string name="title">Judul</string>
+    <string name="subtitle">Subjudul</string>
+    <string name="delete">Hapus</string>
+    <string name="Concoct">Racik</string>
 
     <!--Month-->
     <string name="January">Januari</string>

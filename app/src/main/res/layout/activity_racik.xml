@@ -45,7 +45,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/colorPrimary"
-        android:text="Save"
+        android:text="@string/company_info_save"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Total Cost"
+        android:text="@string/racik_total_cost"
         app:layout_constraintBottom_toTopOf="@+id/ltotal"
         app:layout_constraintStart_toStartOf="parent" />
 
