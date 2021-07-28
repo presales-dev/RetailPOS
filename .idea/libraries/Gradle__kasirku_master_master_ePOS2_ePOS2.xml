@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: kasirku-master-master.ePOS2.ePOS2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ePOS2/ePOS2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

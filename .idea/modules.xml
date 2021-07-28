@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kasirku-master-master.iml" filepath="$PROJECT_DIR$/kasirku-master-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/kasirku-master-master.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/kasirku-master-master.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ePOS2/kasirku-master-master.ePOS2.iml" filepath="$PROJECT_DIR$/.idea/modules/ePOS2/kasirku-master-master.ePOS2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ePOSEasySelect/kasirku-master-master.ePOSEasySelect.iml" filepath="$PROJECT_DIR$/.idea/modules/ePOSEasySelect/kasirku-master-master.ePOSEasySelect.iml" />
+    </modules>
+  </component>
+</project>

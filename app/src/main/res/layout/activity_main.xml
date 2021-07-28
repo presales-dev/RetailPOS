@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    android:orientation="vertical"
+    tools:context="com.dfit.dfpos.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mainbg" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="2"
+        android:padding="1dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        app:alignmentMode="alignMargins"
+        app:columnCount="3"
+        app:columnOrderPreserved="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.02"
+        app:rowCount="3"
+        app:rowOrderPreserved="true">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cpersediaan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="#00A52E2E"
+                    android:src="@drawable/ic_widgets_70dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Inventory"
+                    android:textAlignment="center"
+                    android:textColor="#606160"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cpenjualan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_shopping_basket_70dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Sales"
+                    android:textAlignment="center"
+                    android:textColor="#606160"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cpengaturan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_settings_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Setting"
+                    android:textAlignment="center"
+                    android:textColor="#606160"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/claporan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_assessment_70dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Report"
+                    android:textAlignment="center"
+                    android:textColor="#606160"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ckeluar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_highlight_off_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Exit"
+                    android:textAlignment="center"
+                    android:textColor="#606160"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnama_pengguna">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Total Sales"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ltanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="25 January 2021"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/ltotal_penjualan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="15000.00"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+
+
+            <ImageView
+                android:id="@+id/breload"
+                style="@style/BorderlessButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="8dp"
+                android:padding="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ltotal_penjualan"
+                app:srcCompat="@drawable/ic_repeat_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/ic_account_circle_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/lnama_pengguna"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="Admin"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="Epson Retail Apps"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/banner"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

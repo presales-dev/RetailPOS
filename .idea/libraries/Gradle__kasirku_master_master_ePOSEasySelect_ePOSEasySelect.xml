@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: kasirku-master-master.ePOSEasySelect.ePOSEasySelect">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ePOSEasySelect/ePOSEasySelect.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
