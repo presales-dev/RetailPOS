@@ -36,7 +36,7 @@
                 android:layout_marginStart="8dp"
                 android:textSize="10dp"
                 android:layout_marginTop="2dp"
-                android:text="Kode Barang" />
+                android:text="@string/purchase_item_code" />
 
             <TextView
                 android:id="@+id/lnama_barang"
@@ -45,7 +45,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="3dp"
                 android:textSize="15dp"
-                android:text="Nama Barang belanjaan"
+                android:text="@string/find_item_name"
                 android:textStyle="bold" />
 
             <TextView

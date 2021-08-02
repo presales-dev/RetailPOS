@@ -56,168 +56,168 @@
     <string name="btn_get_printer_firmware">Get Printer Firmware</string>
     <string name="btn_download_firmware_list">Download Firmware List</string>
     <string name="btn_update_firmware">Update Firmware</string>
-    <string name="default_printerModel">TM-m10</string>
+    <string name="default_printerModel">TM-T82X</string>
 
     <string name="test_comm">Printer Communication Test is Successful!</string>
 
     <!-- string related to UI-->
     <!-- Registration Form-->
-    <string name="registration_form_title">Registration Form</string>
-    <string name="registration_form_company_name">Company Name</string>
-    <string name="registration_form_address">Address</string>
-    <string name="registration_form_hp_no">Handphone No.</string>
+    <string name="registration_form_title">Form Registrasi</string>
+    <string name="registration_form_company_name">Nama Perusahaan</string>
+    <string name="registration_form_address">Alamat</string>
+    <string name="registration_form_hp_no">No Handphone</string>
     <string name="registration_form_email">Email</string>
-    <string name="registration_form_serial_no">Serial Number</string>
-    <string name="registration_form_verify_serial_no">Verify Serial Number</string>
+    <string name="registration_form_serial_no">Serial</string>
+    <string name="registration_form_verify_serial_no">Cek Serial</string>
     <string name="registration_form_username">Username</string>
     <string name="registration_form_password">Password</string>
-    <string name="registration_form_confirm_password">Confirm Password</string>
+    <string name="registration_form_confirm_password">Konfirmasi Password</string>
     <string name="registration_form_register">Register</string>
 
     <!--Search for Stock-->
-    <string name="stock_search_form_title">Search for Stock</string>
+    <string name="stock_search_form_title">Cari Persediaan</string>
 
     <!--Print Receipt-->
-    <string name="print_receipt">Print Receipt</string>
+    <string name="print_receipt">Print Struk</string>
 
     <!--Company Information-->
-    <string name="company_info_title">Company Information</string>
-    <string name="company_info_save">Save</string>
+    <string name="company_info_title">Informasi Perusahaan</string>
+    <string name="company_info_save">Simpan</string>
     <string name="company_info_website">Website</string>
 
     <!--Report-->
-    <string name="report_title">Report</string>
-    <string name="report_category">Report Category</string>
-    <string name="report_margin_title">Margin Report</string>
-    <string name="report_purchase_title">Purchase Report</string>
-    <string name="report_sales_title">Sales Report</string>
-    <string name="report_ranking_title">Ranking Report</string>
-    <string name="report_inventory_title">Inventory Report</string>
-    <string name="report_date">Date</string>
-    <string name="report_from_date">From Date</string>
-    <string name="report_to_date">To Date</string>
-    <string name="report_trans_no">Trans No</string>
-    <string name="report_trans_code">Trans Code</string>
-    <string name="report_name">Name</string>
-    <string name="report_amount">Amount</string>
-    <string name="report_sales">Sales</string>
-    <string name="report_ranking_sold">Sold</string>
-    <string name="report_ranking_code">Code</string>
-    <string name="report_buy">Buy</string>
-    <string name="report_profit">Profit</string>
+    <string name="report_title">Laporan</string>
+    <string name="report_category">Kategori Laporan</string>
+    <string name="report_margin_title">Laporan Margin</string>
+    <string name="report_purchase_title">Laporan Pembelian</string>
+    <string name="report_sales_title">Laporan Penjualan</string>
+    <string name="report_ranking_title">Laporan Ranking</string>
+    <string name="report_inventory_title">Laporan Stok</string>
+    <string name="report_date">Tanggal</string>
+    <string name="report_from_date">Tanggal Dari</string>
+    <string name="report_to_date">Tanggal Hingga</string>
+    <string name="report_trans_no">No Trans</string>
+    <string name="report_trans_code">Kode Trans</string>
+    <string name="report_name">Nama</string>
+    <string name="report_amount">Jumlah</string>
+    <string name="report_sales">Jual</string>
+    <string name="report_ranking_sold">Terjual</string>
+    <string name="report_ranking_code">Kode</string>
+    <string name="report_buy">Modal</string>
+    <string name="report_profit">Laba</string>
     <string name="report_total">Total</string>
-    <string name="report_total_sales">Total Sales</string>
-    <string name="report_total_capital">Total Capital</string>
-    <string name="report_total_profit">Total Profit</string>
+    <string name="report_total_capital">Total Modal</string>
+    <string name="report_total_sales">Total Penjualan</string>
+    <string name="report_total_profit">Total Laba</string>
     <string name="report_export">Export</string>
-    <string name="report_price">Price</string>
+    <string name="report_price">Harga</string>
 
     <!--Main Screen-->
-    <string name="main_total_sales">Total Sales</string>
-    <string name="main_inventory">Inventory</string>
-    <string name="main_sales">Sales</string>
-    <string name="main_setting">Setting</string>
-    <string name="main_report">Report</string>
-    <string name="main_exit">Exit</string>
+    <string name="main_total_sales">Total Penjualan</string>
+    <string name="main_inventory">Persediaan</string>
+    <string name="main_sales">Penjualan</string>
+    <string name="main_setting">Pengaturan</string>
+    <string name="main_report">Laporan</string>
+    <string name="main_exit">Keluar</string>
 
     <!--Login Screen-->
-    <string name="username_email">Username or Email</string>
-    <string name="login">Login</string>
-    <string name="login_to_application">Login to Application</string>
-    <string name="do_not_have_account">Do Not Have Account?</string>
+    <string name="username_email">Username Atau Email</string>
+    <string name="login">Masuk</string>
+    <string name="login_to_application">Masuk ke Aplikasi</string>
+    <string name="do_not_have_account">Belum Punya Akun?</string>
 
     <!--purchasing screen-->
-    <string name="purchasing_title">Purchasing</string>
+    <string name="purchasing_title">Pembelian</string>
 
     <!--Setting screen-->
-    <string name="setting_title">Settings</string>
-    <string name="setting_big_title">Application Settings</string>
+    <string name="setting_title">Pengaturan</string>
+    <string name="setting_big_title">Pengaturan Aplikasi</string>
 
-    <!--Account registration/Daftar Pengguna-->
-    <string name="user_account">User Account</string>
-    <string name="user_account_registration">User Account Registration</string>
+    <!--Account registratio/Daftar Pengguna-->
+    <string name="user_account">Pengguna</string>
+    <string name="user_account_registration">Daftar Pengguna</string>
 
     <!--Sales Record-->
-    <string name="sales_record_title">Sales Record</string>
+    <string name="sales_record_title">Penjualan</string>
 
     <!--activity racik-->
-    <string name="racik_total_cost">Total Cost</string>
+    <string name="racik_total_cost">Total Biaya</string>
 
     <!--Purchase activity_tambah_pembelian-->
-    <string name="purchase_title">Purchase</string>
-    <string name="purchase_transaction_no">Transaction No.</string>
-    <string name="purchase_invoice_no">Invoice No.</string>
-    <string name="purchase_invoice">Invoice</string>
-    <string name="purchase_date">Purchase Date</string>
-    <string name="purchase_description">Description</string>
-    <string name="purchase_item_code">Item Code</string>
-    <string name="purchase_message">Purchased from Pt. Inka, Invoice No. 12039 </string>
-    <string name="purchase_total_message">Total : $129.00"</string>
-    <string name="add_item_message">Change Price and Quantity</string>
+    <string name="purchase_title">Transaksi Pembelian</string>
+    <string name="purchase_transaction_no">No. Transaksi</string>
+    <string name="purchase_invoice_no">No. Faktur</string>
+    <string name="purchase_invoice">Faktur</string>
+    <string name="purchase_date">Tanggal Transaksi</string>
+    <string name="purchase_description">Deskripsi</string>
+    <string name="purchase_item_code">Kode Barang</string>
+    <string name="purchase_message">pembelian dari pt inka, no faktur 12039 </string>
+    <string name="purchase_total_message">Jumlah : Rp. 120.000"</string>
+    <string name="add_item_message">Ubah Harga Dan Jumlah</string>
 
     <!--Point of Sales activity_tambah_penjualan-->
-    <string name="pos_transaction_no">Transaction No.</string>
-    <string name="pos_simpan">Hold Transaction</string>
-    <string name="pos_bayar">Pay</string>
-    <string name="pos_edit_message">Change Amount and Discount </string>
+    <string name="pos_transaction_no">No. Transaksi</string>
+    <string name="pos_simpan">Pending</string>
+    <string name="pos_bayar">Bayar</string>
+    <string name="pos_edit_message">Ubah Jumlah dan Diskon </string>
 
     <!--Add Item activity_tambah_persediaan-->
-    <string name="add_item_title">Add Item</string>
-    <string name="add_item_name">Item Name</string>
-    <string name="add_item_purchase_price_cost">Purchased Price / Cost</string>
-    <string name="add_item_selling_price">Selling Price</string>
-    <string name="add_item_discount">Discount (%)</string>
-    <string name="add_item_inventory_type">Inventory Type</string>
-    <string name="add_item_unit">Unit</string>
-    <string name="add_item_stock">Stock</string>
+    <string name="add_item_title">Tambah Barang</string>
+    <string name="add_item_name">Nama Barang</string>
+    <string name="add_item_purchase_price_cost">Harga Beli / Harga Modal</string>
+    <string name="add_item_selling_price">Harga Jual</string>
+    <string name="add_item_discount">Diskon (%)</string>
+    <string name="add_item_inventory_type">Tipe Persediaan</string>
+    <string name="add_item_unit">Satuan</string>
+    <string name="add_item_stock">Stok</string>
 
     <!--Find Item activity_cari_barang-->
-    <string name="find_item_name">Item Name</string>
+    <string name="find_item_name">Name Barang Belanjaan</string>
 
     <!-- Payment bayar_layout -->
-    <string name="payment_change">Change</string>
-    <string name="payment_total">Total</string>
-    <string name="payment_ok">OK</string>
-    <string name="payment_pass">PASS</string>
-    <string name="payment_total_money">Total Cash</string>
+    <string name="payment_change">Kembalian</string>
+    <string name="payment_total">Total Belanja</string>
+    <string name="payment_ok">Oke</string>
+    <string name="payment_pass">PAS</string>
+    <string name="payment_total_money">Jumlah Uang</string>
 
     <!--General Adapter-->
-    <string name="title">Title</string>
-    <string name="subtitle">Subtitle</string>
-    <string name="delete">Delete</string>
-    <string name="Concoct">Concoct</string>
+    <string name="title">Judul</string>
+    <string name="subtitle">Subjudul</string>
+    <string name="delete">Hapus</string>
+    <string name="Concoct">Racik</string>
 
     <!--Month-->
-    <string name="January">January</string>
-    <string name="February">February</string>
-    <string name="March">March</string>
+    <string name="January">Januari</string>
+    <string name="February">Februari</string>
+    <string name="March">Maret</string>
     <string name="April">April</string>
-    <string name="May">May</string>
-    <string name="June">June</string>
-    <string name="July">July</string>
-    <string name="August">August</string>
+    <string name="May">Mei</string>
+    <string name="June">Juni</string>
+    <string name="July">Juli</string>
+    <string name="August">Agustus</string>
     <string name="September">September</string>
-    <string name="October">October</string>
+    <string name="October">Oktober</string>
     <string name="November">November</string>
-    <string name="December">December</string>
+    <string name="December">Desember</string>
 
     <!--Toast messages-->
-    <string name="process_rejected">Process rejected, you do not have the access right</string>
+    <string name="process_rejected">Process ditolak, anda tidak memiliki akses</string>
 
     <!--alert dialog message-->
-    <string name="alert_dialog_Confirmation">Confirmation</string>
-    <string name="alert_dialog_main_exit">Do you want to exit the application ?</string>
-    <string name="alert_dialog_yes">Yes</string>
-    <string name="alert_dialog_no">No</string>
-    <string name="alert_dialog_cancel">Cancel</string>
+    <string name="alert_dialog_Confirmation">Konfirmasi</string>
+    <string name="alert_dialog_main_exit">Anda ingin keluar dari aplikasi ?</string>
+    <string name="alert_dialog_yes">Ya</string>
+    <string name="alert_dialog_no">Tidak</string>
+    <string name="alert_dialog_cancel">Batal</string>
 
-    <string name="denomination1">2.00</string>
-    <string name="denomination2">5.00</string>
-    <string name="denomination3">10.00</string>
-    <string name="denomination4">50.00</string>
-    <string name="denomination5">100.00</string>
+    <string name="denomination1">1000</string>
+    <string name="denomination2">5000</string>
+    <string name="denomination3">10000</string>
+    <string name="denomination4">50000</string>
+    <string name="denomination5">100000</string>
 
-    <string name="currency">$</string>
+    <string name="currency">Rp.</string>
     <string name="termsofuse">
 These Terms of Use, together with the documents referenced herein (collectively the "Terms"), apply to the mobile application named "Retail POS" (the "App"). PT Epson Indonesia (hereinafter referred to as "EIN" and/or "we") permits you to use the App in connection with the use of the Epson TM Printer (the “Purpose”) and subject to these Terms and any applicable rules applied by and Google Inc. ("Play Store Rules") with respect to the use of the Google Play Store (the “Play Store”). You (hereinafter referred to as "you" and/or the “App user”) may only use the App in accordance with these Terms.
 
@@ -337,4 +337,5 @@ These Terms of Use, together with the documents referenced herein (collectively 
 
 18.6 	We are an independent contractor and no agency, partnership, joint venture or employment relationship is created as a result of these Terms. Neither of us has any authority of any kind to bind the other in any respect.
 </string>
+
 </resources>

@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="3dp"
-                android:text="Item Name"
+                android:text="@string/find_item_name"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/gambar_barang"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
-                android:text="Item Code"
+                android:text="@string/purchase_item_code"
                 app:layout_constraintStart_toEndOf="@+id/gambar_barang"
                 app:layout_constraintTop_toBottomOf="@+id/lnama_barang" />
 

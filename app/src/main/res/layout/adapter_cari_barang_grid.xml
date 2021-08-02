@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
-                android:text="Item Code"
+                android:text="@string/purchase_item_code"
                 android:textSize="10dp" />
 
             <TextView
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="3dp"
-                android:text="Item Name"
+                android:text="@string/find_item_name"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 

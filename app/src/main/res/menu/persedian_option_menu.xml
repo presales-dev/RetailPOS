@@ -4,8 +4,8 @@
     <item android:id="@+id/medit"
         android:title="Edit"/>
     <item android:id="@+id/mhapus"
-        android:title="Delete"/>
+        android:title="@string/delete"/>
     <item android:id="@+id/mracik"
-        android:title="Concoct"/>
+        android:title="@string/Concoct"/>
 
 </menu>

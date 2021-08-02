@@ -38,7 +38,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="3dp"
-                android:text="Nama Barang belanjaan"
+                android:text="@string/find_item_name"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/img_hapus"
                 app:layout_constraintStart_toEndOf="@+id/gambar_barang"
@@ -74,7 +74,7 @@
                 android:layout_height="33dp"
                 android:layout_marginStart="8dp"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="Ubah Harga Dan Jumlah"
+                android:text="@string/add_item_message"
                 android:textColor="#ffffff"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/gambar_barang"
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
-                android:text="kode barang"
+                android:text="@string/purchase_item_code"
                 app:layout_constraintStart_toEndOf="@+id/gambar_barang"
                 app:layout_constraintTop_toBottomOf="@+id/lnama_barang" />
 
