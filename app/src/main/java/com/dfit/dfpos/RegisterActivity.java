@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -21,30 +22,112 @@ import java.util.Date;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText ednama_usaha,edalamat,ednohp,edemail,edwebsite,edusername,edpassword,edrepassword;
+    EditText ednama_usaha,edalamat,ednohp,edemail,edserial,edusername,edpassword,edrepassword;
     Button bsimpan,bserial;
     Dblocalhelper dbo;
+
+    APIInterface apiInterface;
+    String userId;
+    String phoneID;
+    String serialin;
+    String countryID = "ID"; //TODO: set this in configuration for next version
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        apiInterface = APIClient.getClient().create(APIInterface.class);
         ednama_usaha=findViewById(R.id.ednama_usaha);
         edalamat=findViewById(R.id.edalamat);
         ednohp=findViewById(R.id.ednohp);
         edemail=findViewById(R.id.edemail);
-        edwebsite=findViewById(R.id.edwebsite);
+        edserial=findViewById(R.id.edserial);
         edusername=findViewById(R.id.edusername);
         edpassword=findViewById(R.id.edpassword);
-        edrepassword=findViewById(R.id.edpassword);
+        edrepassword=findViewById(R.id.edrepassword);
         bsimpan=findViewById(R.id.bsimpan);
         bserial=findViewById(R.id.btCekSerial);
         dbo=new Dblocalhelper(this);
 
         aggreementpopup();
         simpan();
+
+
+        bserial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkValidation()) {
+                    if (CommonMethod.isNetworkAvailable(RegisterActivity.this))
+                        verfySerial(edserial.getText().toString(), ednohp.getText().toString(),countryID);
+                    else
+                        CommonMethod.showAlert("Internet Connectivity Failure", RegisterActivity.this);
+                }
+            }
+        });
+    }
+
+    public boolean checkValidation(){
+        serialin = edserial.getText().toString();
+
+        Log.e("RetailPOS", "serial is -> " + serialin);
+
+        if (edserial.getText().toString().trim().equals("")) {
+            Toast.makeText(getApplicationContext(), "Serial Cannot Left Blank", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+
+    }
+    public void verfySerial(String userId, String password,String countryID){
+        final LoginResponse login = new LoginResponse(userId, password,countryID);
+        //Call<LoginResponse> call1 = apiInterface.createUser(login);
+
+        //use string value
+        Call<LoginResponse> call1 = apiInterface.createUser(login.data);
+
+
+        call1.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                LoginResponse loginResponse = response.body();
+                Log.e("retailpos", "loginResponse 1 --> " + loginResponse);
+                if (loginResponse != null) {
+                    Log.e("retailpos", "getSerial          -->  " + loginResponse.getSerial());
+                    Log.e("retailpos", "getPhone       -->  " + loginResponse.getPhone());
+                    Log.e("retailpos", "getCountry        -->  " + loginResponse.getCountry());
+
+                    String responseCode = loginResponse.getResponseCode();
+                    Log.e("retailpos", "getResponseCode  -->  " + loginResponse.getResponseCode());
+                    Log.e("retailpos", "getResponseMessage  -->  " + loginResponse.getMessage());
+                    Log.e("retailpos", "getStatus  -->  " + loginResponse.getStatus());
+                    if (responseCode != null && responseCode.equals("404")) {
+                        Toast.makeText(RegisterActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    } else if (loginResponse.getStatus().equals("true")) {
+                        Toast.makeText(RegisterActivity.this, "Success to Verify ", Toast.LENGTH_SHORT).show();
+                        edserial.setEnabled(false);
+                        ednohp.setEnabled(false);
+                        bserial.setText("Verified!");
+                        bserial.setEnabled(false);
+                        edemail.setEnabled(false);
+                    }else{
+                        Toast.makeText(RegisterActivity.this, "Try Again, "+loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "onFailure called ", Toast.LENGTH_SHORT).show();
+                call.cancel();
+            }
+        });
     }
 
     public void aggreementpopup(){
@@ -72,7 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
         ad.show();
     }
     private void simpan(){
-        bserial.setOnClickListener(new View.OnClickListener() {
+        /*bserial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new Thread(new Runnable(){
@@ -116,11 +199,11 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }).start();
             }
-        });
+        });*/
         bsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!edwebsite.isEnabled()){
+                if(!edserial.isEnabled()){
                     if(edpassword.getText().toString().equals(edrepassword.getText().toString())) {
                         SQLiteDatabase db = dbo.getWritableDatabase();
                         db.beginTransaction();
@@ -130,7 +213,7 @@ public class RegisterActivity extends AppCompatActivity {
                             String alamat = edalamat.getText().toString();
                             String nohp = ednohp.getText().toString();
                             String email = edemail.getText().toString();
-                            String website = edwebsite.getText().toString();
+                            String website = edserial.getText().toString();
                             String username = edusername.getText().toString();
                             String password = edpassword.getText().toString();
                             db.execSQL("UPDATE perusahaan SET nama_usaha='" + nama_usaha + "', alamat_usaha='" + alamat + "'," +
@@ -140,9 +223,9 @@ public class RegisterActivity extends AppCompatActivity {
                                     "VALUES('1001','"+email+"','"+username+"','"+password+"',1,1,1,1,1,1,1,1)");
                             db.setTransactionSuccessful();
                             AlertDialog.Builder adb = new AlertDialog.Builder(RegisterActivity.this);
-                            adb.setTitle("Informasi");
-                            adb.setMessage("Register Berhasil, Anda sudah bisa masuk ke aplikasi dengan username dan password yang sudah anda daftarkan");
-                            adb.setPositiveButton("Oke", new DialogInterface.OnClickListener() {
+                            adb.setTitle(getResources().getString(R.string.information));
+                            adb.setMessage(getResources().getString(R.string.registrationAlert));
+                            adb.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     finish();
@@ -152,7 +235,7 @@ public class RegisterActivity extends AppCompatActivity {
                         } catch (Exception ex) {
                             deleteDatabase("kasirku.db");
                             AlertDialog.Builder adb=new AlertDialog.Builder(RegisterActivity.this);
-                            adb.setTitle("Informasi");
+                            adb.setTitle(getResources().getString(R.string.information));
                             adb.setMessage(ex.getMessage());
                             adb.show();
                         } finally {
@@ -160,10 +243,10 @@ public class RegisterActivity extends AppCompatActivity {
                             db.close();
                         }
                     }else{
-                        Toast.makeText(RegisterActivity.this, "Proses Gagal, Password tidak cocok", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, getResources().getString(R.string.password_incorrect), Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(RegisterActivity.this, "Proses Gagal, Serial tidak cocok!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, getResources().getString(R.string.password_incorrect), Toast.LENGTH_SHORT).show();
                 }
             }
         });
