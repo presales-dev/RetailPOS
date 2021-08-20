@@ -53,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         edpassword=findViewById(R.id.edpassword);
         edrepassword=findViewById(R.id.edrepassword);
         bsimpan=findViewById(R.id.bsimpan);
+        bsimpan.setEnabled(false);
         bserial=findViewById(R.id.btCekSerial);
         dbo=new Dblocalhelper(this);
 
@@ -116,6 +117,7 @@ public class RegisterActivity extends AppCompatActivity {
                         bserial.setText("Verified!");
                         bserial.setEnabled(false);
                         edemail.setEnabled(false);
+                        bsimpan.setEnabled(true);
                     }else{
                         Toast.makeText(RegisterActivity.this, "Try Again, "+loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     }
