@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Github_project.iml" filepath="$PROJECT_DIR$/.idea/modules/Github_project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Github_project.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Github_project.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ePOS2/Github_project.ePOS2.iml" filepath="$PROJECT_DIR$/.idea/modules/ePOS2/Github_project.ePOS2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ePOSEasySelect/Github_project.ePOSEasySelect.iml" filepath="$PROJECT_DIR$/.idea/modules/ePOSEasySelect/Github_project.ePOSEasySelect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RetailPOS.iml" filepath="$PROJECT_DIR$/.idea/modules/RetailPOS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RetailPOS.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RetailPOS.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ePOS2/RetailPOS.ePOS2.iml" filepath="$PROJECT_DIR$/.idea/modules/ePOS2/RetailPOS.ePOS2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ePOSEasySelect/RetailPOS.ePOSEasySelect.iml" filepath="$PROJECT_DIR$/.idea/modules/ePOSEasySelect/RetailPOS.ePOSEasySelect.iml" />
     </modules>
   </component>
 </project>
