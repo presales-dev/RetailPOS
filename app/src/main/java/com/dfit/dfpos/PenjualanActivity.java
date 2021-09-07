@@ -68,7 +68,7 @@ public class PenjualanActivity extends AppCompatActivity {
             @Override
             public void onLoadMore() {
                 if(svdata.getQuery()==null || (svdata.getQuery().toString().equals(""))){
-                    Toast.makeText(PenjualanActivity.this, "loading data", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(PenjualanActivity.this, "loading data", Toast.LENGTH_SHORT).show();
                     loaddata();
                     currentoffset=currentoffset+100;
                 }
@@ -241,7 +241,7 @@ public class PenjualanActivity extends AppCompatActivity {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
                                 switch (item.getItemId()){
-                                    case  R.id.medit:
+                                    /*case  R.id.medit:
                                         if(model.get(position).getStatus()==1){
                                             Toast.makeText(ct, "You are not allowed to edit Completed Transaction", Toast.LENGTH_SHORT).show();
                                         }else{
@@ -249,7 +249,7 @@ public class PenjualanActivity extends AppCompatActivity {
                                             in.putExtra("kode_penjualan_master",model.get(position).getKode_penjualan_master());
                                             startActivity(in);
                                         }
-                                        break;
+                                        break;*/
                                     case R.id.mhapus:
                                         AlertDialog.Builder adb=new AlertDialog.Builder(ct);
                                         adb.setTitle("Confirmation");

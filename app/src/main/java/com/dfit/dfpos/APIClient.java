@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 class APIClient {
 
-    public static final String BASE_URL = "https://www.epsoncrmtest.epson.com.sg/WebService/";
+    public static final String BASE_URL = "https://customer.epson.asia/WebService/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

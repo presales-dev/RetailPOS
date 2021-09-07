@@ -77,7 +77,7 @@ public class PersediaanActivity extends AppCompatActivity {
             @Override
             public void onLoadMore() {
                 if (svdata.getQuery() == null || (svdata.getQuery().toString().equals(""))) {
-                    Toast.makeText(PersediaanActivity.this, "Load data", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(PersediaanActivity.this, "Load data", Toast.LENGTH_SHORT).show();
                     loaddata();
                     currentoffset = currentoffset + 100;
                 }

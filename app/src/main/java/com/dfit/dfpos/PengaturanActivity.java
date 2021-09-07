@@ -56,14 +56,13 @@ public class PengaturanActivity extends AppCompatActivity {
         //ls.add(new Listviewglobaladapter.listglobalmodel("1", "Profile Pengguna", "Atur siapa saja yang boleh menggunakan aplikasi beserta hak aksesnya"));
         ls.add(new Listviewglobaladapter.listglobalmodel("2", "Setup POS Printer", "Setup your POS Printer for receipt printing")); //Printer Saat ini " + sp.getString("default_printer", "none")
         //ls.add(new Listviewglobaladapter.listglobalmodel("3", "Test Koneksi Printer", "Cek apakah printer anda sudah terkoneksi dan berfungsi dengan baik"));
-        //ls.add(new Listviewglobaladapter.listglobalmodel("4", "Backup", "Cadangkan data anda untuk mengantisipasi kemungkinan data terhapus, default backup file ada pada folder kasirkubackup di internal storage anda"));
-        //ls.add(new Listviewglobaladapter.listglobalmodel("5", "Restore", "Pulihkan data yang sudah anda cadangkan, default restore file harus ada di dalam folder kasirkubackup di internal storage anda, pastikan data yang ingin anda pulihkan berada didalam folder tersebut "));
-
         //ls.add(new Listviewglobaladapter.listglobalmodel("6", "Tipe Tampilan Menu Barang", (sp.getInt("view_tipe",0)==0)?"Tampilan Menu List":"Tampilan Menu Grid" ));
 
         ls.add(new Listviewglobaladapter.listglobalmodel("7", "About Application", "Application Retail POS V1.1"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("4", "Backup", "It is recommended to backup your data as it may get destroyed or lost, default backup file is stored in internal storage"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("5", "Restore", "Restore the data you have backup, default restore file have to be in the folder \"kasirkubackup\" in internal storage. Make sure the data you want to restore is in the folder mentioned "));
+        ls.add(new Listviewglobaladapter.listglobalmodel("3", "Backup", "Cadangkan data anda untuk mengantisipasi kemungkinan data terhapus, default backup file ada pada folder kasirkubackup di internal storage anda"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("4", "Restore", "Pulihkan data yang sudah anda cadangkan, default restore file harus ada di dalam folder kasirkubackup di internal storage anda, pastikan data yang ingin anda pulihkan berada didalam folder tersebut "));
+        //ls.add(new Listviewglobaladapter.listglobalmodel("4", "Backup", "It is recommended to backup your data as it may get destroyed or lost, default backup file is stored in internal storage"));
+        //ls.add(new Listviewglobaladapter.listglobalmodel("5", "Restore", "Restore the data you have backup, default restore file have to be in the folder \"kasirkubackup\" in internal storage. Make sure the data you want to restore is in the folder mentioned "));
         final ArrayAdapter<String> adapter = new Listviewglobaladapter(this, ls);
         lvdata.setAdapter(adapter);
 
