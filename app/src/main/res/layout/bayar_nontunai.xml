@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv1"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:text="@string/payment_total"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/ltotalbelanja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv1"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Rp. 20.000"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tvemoney"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/ltotalbelanja"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Silakan lakukan pembayaran E-Money sesuai dengan jumlah diatas"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:paddingTop="40dp"
+        android:id="@+id/tvtimer"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvemoney"
+        android:text="Lakukan pembayaran dalam : "/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeremoney"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:textSize="50dp"
+        android:layout_below="@+id/tvtimer"
+        android:layout_centerHorizontal="true"
+        android:text="1"/>
+    <Button
+        android:id="@+id/beproses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Proses"
+        android:layout_below="@+id/timeremoney"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"/>
+    <Button
+        android:id="@+id/bcomplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Complete"
+        android:layout_below="@+id/timeremoney"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"/>
+
+</RelativeLayout>
