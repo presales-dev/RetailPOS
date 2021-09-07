@@ -144,8 +144,8 @@ public class LaporanStokActivity extends AppCompatActivity {
         bexport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "FnBApps");
-                File laporandirectori = new File(Environment.getExternalStorageDirectory(), "FnBApps/report");
+                File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS");
+                File laporandirectori = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/report");
                 if (ActivityCompat.checkSelfPermission(LaporanStokActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                         != PackageManager.PERMISSION_GRANTED &&
                         ActivityCompat.checkSelfPermission(LaporanStokActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -177,7 +177,7 @@ public class LaporanStokActivity extends AppCompatActivity {
                 String ddari = edtanggal_dari.getText().toString();
                 String dhingga = edtanggal_hingga.getText().toString();
                 laporanfile = new File(Environment.getExternalStorageDirectory(),
-                        "FnBApps/report/inventory-" + ddari + "-" + dhingga + ".csv");
+                        "EpsonRetailPOS/report/inventory-" + ddari + "-" + dhingga + ".csv");
 
                 if (!laporanfile.exists()) {
                     try {
@@ -210,8 +210,8 @@ public class LaporanStokActivity extends AppCompatActivity {
                     final Uri muri = Uri.fromFile(laporanfile);
                     AlertDialog.Builder adb = new AlertDialog.Builder(LaporanStokActivity.this);
                     adb.setTitle("Information");
-                    adb.setMessage("Data successfully exported, exported data is csv file stored " +
-                            "automatically in the Report folder of FnBApps (FnBApps/Report)");
+                    adb.setMessage("Data berhasil disimpan, data tersimpan pada internal memori " +
+                            "direktori EpsonRetailPOS (EpsonRetailPOS/Report)");
                     adb.setPositiveButton("Open File", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

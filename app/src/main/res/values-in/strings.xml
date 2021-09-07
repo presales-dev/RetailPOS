@@ -63,7 +63,7 @@
     <!-- string related to UI-->
     <!-- Registration Form-->
     <string name="registration_form_title">Form Registrasi</string>
-    <string name="registration_form_company_name">Nama Perusahaan</string>
+    <string name="registration_form_company_name">Nama Toko</string>
     <string name="registration_form_address">Alamat</string>
     <string name="registration_form_hp_no">No Handphone</string>
     <string name="registration_form_email">Email</string>

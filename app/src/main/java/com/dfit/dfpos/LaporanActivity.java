@@ -27,10 +27,10 @@ public class LaporanActivity extends AppCompatActivity {
 
     private void loaddatalist() {
         List<Listviewglobaladapter.listglobalmodel> ls = new ArrayList<>();
-        ls.add(new Listviewglobaladapter.listglobalmodel("0", "Sales Report", "View you sales data, set the sales period you want to view"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("2", "Inventory Report", "View your latest inventory data"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("3", "Sales Item Ranking", "View your item ranking, get to know which one is bestseller"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("4", "Sales Margin Report", "View your margin report"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("0", "Laporan Penjualan", "Cek laporan penjualan"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("2", "Laporan Stok", "Cek status stok ketersediaan item"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("3", "Rangking Stok", "Cek item paling laris"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("4", "Laporan Margin Penjualan", "Cek margin penjualan"));
         //ls.add(new Listviewglobaladapter.listglobalmodel("5", "Purchasing Report", "View your purchasing record, set the period you want to view"));
         ArrayAdapter<String> adapter = new Listviewglobaladapter(this, ls);
         lvdata.setAdapter(adapter);

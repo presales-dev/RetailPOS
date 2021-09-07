@@ -5,7 +5,5 @@
         android:title="Edit"/>
     <item android:id="@+id/mhapus"
         android:title="@string/delete"/>
-    <item android:id="@+id/mracik"
-        android:title="@string/Concoct"/>
 
 </menu>

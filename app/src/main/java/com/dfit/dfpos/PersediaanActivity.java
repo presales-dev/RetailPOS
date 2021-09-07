@@ -285,7 +285,7 @@ public class PersediaanActivity extends AppCompatActivity {
                                         });
                                         adb.show();
                                         break;
-                                    case R.id.mracik:
+                                    /*case R.id.mracik:
                                         if(model.get(position).getTipe_persediaan()==0){
                                             Toast.makeText(ct, "Not a concoction good", Toast.LENGTH_SHORT).show();
                                         }else{
@@ -293,7 +293,7 @@ public class PersediaanActivity extends AppCompatActivity {
                                            ins.putExtra("kode_barang",model.get(position).getKode_barang());
                                            ins.putExtra("nama_barang",model.get(position).getNama_barang());
                                            startActivity(ins);
-                                        }
+                                        }*/
                                 }
                                 return false;
                             }

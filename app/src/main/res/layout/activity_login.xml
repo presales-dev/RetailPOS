@@ -145,10 +145,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="@string/do_not_have_account"
         android:gravity="right"
         android:textColor="#FFFFFF"
+        android:textSize="15dp"
         app:layout_constraintEnd_toStartOf="@+id/lregister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
@@ -159,22 +160,29 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
         android:text="@string/registration_form_register"
+        android:textSize="15dp"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/lcapregister"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <TextView
-        android:id="@+id/ein"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Powered by Epson Indonesia"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/lregister"
-        android:gravity="center"/>
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/ein"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Powered by Epson Indonesia"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:paddingBottom="30dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"/>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

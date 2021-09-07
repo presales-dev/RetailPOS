@@ -52,15 +52,15 @@ public class PengaturanActivity extends AppCompatActivity {
     private void loaddatalist() {
 
         List<Listviewglobaladapter.listglobalmodel> ls = new ArrayList<>();
-        ls.add(new Listviewglobaladapter.listglobalmodel("0", "Company Profile", "Describe the company information"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("0", "Profile", "Informasi detail mengenai toko anda"));
         //ls.add(new Listviewglobaladapter.listglobalmodel("1", "Profile Pengguna", "Atur siapa saja yang boleh menggunakan aplikasi beserta hak aksesnya"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("2", "Setup POS Printer", "Setup your POS Printer for receipt printing")); //Printer Saat ini " + sp.getString("default_printer", "none")
+        ls.add(new Listviewglobaladapter.listglobalmodel("2", "Pengaturan Printer", "Pilih printer yang akan digunakan untuk print receipt")); //Printer Saat ini " + sp.getString("default_printer", "none")
         //ls.add(new Listviewglobaladapter.listglobalmodel("3", "Test Koneksi Printer", "Cek apakah printer anda sudah terkoneksi dan berfungsi dengan baik"));
         //ls.add(new Listviewglobaladapter.listglobalmodel("6", "Tipe Tampilan Menu Barang", (sp.getInt("view_tipe",0)==0)?"Tampilan Menu List":"Tampilan Menu Grid" ));
 
-        ls.add(new Listviewglobaladapter.listglobalmodel("7", "About Application", "Application Retail POS V1.1"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("3", "Backup", "Cadangkan data anda untuk mengantisipasi kemungkinan data terhapus, default backup file ada pada folder kasirkubackup di internal storage anda"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("4", "Restore", "Pulihkan data yang sudah anda cadangkan, default restore file harus ada di dalam folder kasirkubackup di internal storage anda, pastikan data yang ingin anda pulihkan berada didalam folder tersebut "));
+        ls.add(new Listviewglobaladapter.listglobalmodel("7", "Tentang Aplikasi", "Application Retail POS V1.0"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("3", "Cadangkan Data", "Cadangkan data anda untuk mengantisipasi kemungkinan data terhapus, file backup akan disimpan pada folder EpsonRetailPOS di internal storage anda"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("4", "Pulihkan Data", "Pulihkan data yang sudah anda cadangkan, default restore file harus ada di dalam folder EpsonRetailPOS di internal storage anda, pastikan data yang ingin anda pulihkan berada didalam folder tersebut "));
         //ls.add(new Listviewglobaladapter.listglobalmodel("4", "Backup", "It is recommended to backup your data as it may get destroyed or lost, default backup file is stored in internal storage"));
         //ls.add(new Listviewglobaladapter.listglobalmodel("5", "Restore", "Restore the data you have backup, default restore file have to be in the folder \"kasirkubackup\" in internal storage. Make sure the data you want to restore is in the folder mentioned "));
         final ArrayAdapter<String> adapter = new Listviewglobaladapter(this, ls);
@@ -245,14 +245,12 @@ public class PengaturanActivity extends AppCompatActivity {
                     AlertDialog.Builder adb = new AlertDialog.Builder(PengaturanActivity.this);
                     adb.setCancelable(false);
                     adb.setTitle("Information");
-                    adb.setMessage("Backup data will be moved automatically to App folder in internal storage, " +
-                            "do not delete the backup in this folder" +
-                            "you can copy the backup file to SDCard and any storage " +
-                            "and to restore it, you need to move the backup file to FnBApps folder ");
+                    adb.setMessage("Backup data akan tersimpan pada folder EpsonRetailPOS di internal storage, " +
+                            "copy folder EpsonRetailPOS jika ingin pindah ke device baru");
                     adb.setPositiveButton("Backup", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "FnBApps");
+                            File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS");
                             if (ActivityCompat.checkSelfPermission(PengaturanActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                                     != PackageManager.PERMISSION_GRANTED &&
                                     ActivityCompat.checkSelfPermission(PengaturanActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -272,13 +270,13 @@ public class PengaturanActivity extends AppCompatActivity {
                             }
 
                             File lokasidb = getDatabasePath("kasirku.db");
-                            File lokasibackupdb = new File(Environment.getExternalStorageDirectory(), "FnBApps/database.db");
+                            File lokasibackupdb = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/database.db");
                             File lokasiimage = new File(getFilesDir(), "kasirkuimage");
-                            File lokasibackupimage = new File(Environment.getExternalStorageDirectory(), "FnBApps/Image");
+                            File lokasibackupimage = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/Image");
                             try {
                                 Oneforallfunc.copyfile(lokasidb, lokasibackupdb);
                                 Oneforallfunc.copyfile(lokasiimage, lokasibackupimage);
-                                Toast.makeText(PengaturanActivity.this, "Backup Completed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, "Backup Berhasil", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -298,9 +296,8 @@ public class PengaturanActivity extends AppCompatActivity {
                     AlertDialog.Builder adb = new AlertDialog.Builder(PengaturanActivity.this);
                     adb.setCancelable(false);
                     adb.setTitle("Information");
-                    adb.setMessage("Make sure the kasirkubackup folder is not deleted in internal storage." +
-                            "make sure the backup file is inside the folder, otherwise please" +
-                            "copy the file to kasirkubackup folder before restoring it");
+                    adb.setMessage("Pastikan EpsonRetailPOS folder berada pada internal storage." +
+                            "lalu pastikan file backup telah tersimpan didalam folder EpsonRetailPOS");
                     adb.setPositiveButton("Restore", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -316,15 +313,15 @@ public class PengaturanActivity extends AppCompatActivity {
                             }
 
                             File lokasidb = getDatabasePath("kasirku.db");
-                            File lokasibackupdb = new File(Environment.getExternalStorageDirectory(), "FnBApps/kasirku.db");
+                            File lokasibackupdb = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/database.db");
                             File lokasiimage = new File(getFilesDir(), "kasirkuimage");
-                            File lokasibackupimage = new File(Environment.getExternalStorageDirectory(), "kasirkubackup/kasirkuimage");
+                            File lokasibackupimage = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/Image");
                             try {
                                 Oneforallfunc.copyfile(lokasibackupdb, lokasidb);
                                 Oneforallfunc.copyfile(lokasibackupimage, lokasiimage);
-                                Toast.makeText(PengaturanActivity.this, "Data Restore Completed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, "Data Restore Berhasil", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
-                                Toast.makeText(PengaturanActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PengaturanActivity.this, "Restore Gagal, file tidak ditemukan"+e.getMessage(), Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             }
                         }

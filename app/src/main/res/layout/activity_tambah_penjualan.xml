@@ -82,12 +82,12 @@
         android:id="@+id/fbadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="16dp"
         android:clickable="true"
         android:scaleType="center"
         app:backgroundTint="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/bsimpan"
+        app:layout_constraintBottom_toTopOf="@+id/bbayar"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/colorAccent"
         app:srcCompat="@drawable/ic_control_point_black_24dp"
@@ -166,7 +166,6 @@
         app:srcCompat="@drawable/ic_local_atm_black_24dp"
         tools:ignore="VectorDrawableCompat" />
 
-
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
@@ -190,19 +189,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bsimpan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="@string/pos_simpan"
-        android:textColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
-    <Button
         android:id="@+id/bbayar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -212,6 +198,6 @@
         android:text="@string/pos_bayar"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bsimpan" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
