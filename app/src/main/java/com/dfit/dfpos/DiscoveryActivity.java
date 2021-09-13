@@ -34,25 +34,27 @@ public class DiscoveryActivity extends AppCompatActivity implements View.OnClick
 
         mContext = this;
 
-        Button button = (Button) findViewById(R.id.btnRestart);
+        Button button = (Button)findViewById(R.id.btnRestart);
         button.setOnClickListener(this);
 
         mPrinterList = new ArrayList<HashMap<String, String>>();
         mPrinterListAdapter = new SimpleAdapter(this, mPrinterList, R.layout.list_at,
-                new String[]{"PrinterName", "Target"},
-                new int[]{R.id.PrinterName, R.id.Target});
-        ListView list = (ListView) findViewById(R.id.lstReceiveData);
+                new String[] { "PrinterName", "Target" },
+                new int[] { R.id.PrinterName, R.id.Target });
+        ListView list = (ListView)findViewById(R.id.lstReceiveData);
         list.setAdapter(mPrinterListAdapter);
         list.setOnItemClickListener(this);
 
         mFilterOption = new FilterOption();
         mFilterOption.setDeviceType(Discovery.TYPE_PRINTER);
         mFilterOption.setEpsonFilter(Discovery.FILTER_NAME);
+        mFilterOption.setUsbDeviceName(Discovery.TRUE);
 
         try {
             Discovery.start(this, mFilterOption, mDiscoveryListener);
-        } catch (Exception e) {
-            Toast.makeText(DiscoveryActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e) {
+            //ShowMsg.showException(e, "start", mContext);
         }
     }
 
@@ -90,9 +92,16 @@ public class DiscoveryActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent();
+        HashMap<String, String> item  = mPrinterList.get(position);
+        // For USB, change the target to "USB:".
+        // The USB port changes each time the printer restarts.
+        // Please refer to the manual for details.
+        String target = item.get("Target");
+        if(target.startsWith("USB:")){
+            target = "USB:";
+        }
 
-        HashMap<String, String> item = mPrinterList.get(position);
-        intent.putExtra("Target", item.get("Target"));
+        intent.putExtra("Target", target);
 
         setResult(RESULT_OK, intent);
 

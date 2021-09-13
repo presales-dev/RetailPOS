@@ -703,7 +703,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                 }
                 rawsavedata(1);
                 ad.dismiss();
-                //lsdata.clear();
+                lsdata.clear();
                 adapter.notifyDataSetChanged();
                 ednotrans.setText(dbo.getkodetransaksi("PJ"));
                 edtanggaltrans.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
@@ -727,12 +727,20 @@ public class TambahPenjualanActivity extends AppCompatActivity {
             final EditText edjumlahuang = (EditText) vi.findViewById(R.id.edjumlahuang);
             Button boke = (Button) vi.findViewById(R.id.boke);
             Button bpas = (Button) vi.findViewById(R.id.bpass);
+            Button b1 = (Button) vi.findViewById(R.id.b1);
+            Button b2 = (Button) vi.findViewById(R.id.b2);
             Button b5 = (Button) vi.findViewById(R.id.b5);
-            b5.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination1));
             Button b10 = (Button) vi.findViewById(R.id.b10);
             Button b20 = (Button) vi.findViewById(R.id.b20);
             Button b50 = (Button) vi.findViewById(R.id.b50);
             Button b100 = (Button) vi.findViewById(R.id.b100);
+            b1.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination1));
+            b2.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination2));
+            b5.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination3));
+            b10.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination4));
+            b20.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination5));
+            b50.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination6));
+            b100.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination7));
             ltotalbelanja.setText(ltotal.getText().toString());
             final double kembali = 0 - Oneforallfunc.Stringtodouble(ltotal.getText().toString().replace(".", ""));
             lkembalian.setText(nf.format(kembali));
@@ -773,7 +781,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                         }
                         rawsavedata(1);
                         ad.dismiss();
-                        //lsdata.clear();
+                        lsdata.clear();
                         adapter.notifyDataSetChanged();
                         ednotrans.setText(dbo.getkodetransaksi("PJ"));
                         edtanggaltrans.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
@@ -815,32 +823,44 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                                     Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
                             lkembalian.setText(nf.format(hasil));
                             break;
-                        case R.id.b5:
+                        case R.id.b1:
                             edjumlahuang.setText(R.string.denomination1);
                             hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
                                     Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
                             lkembalian.setText(nf.format(hasil));
                             break;
+                        case R.id.b2:
+                            edjumlahuang.setText(R.string.denomination2);
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            lkembalian.setText(nf.format(hasil));
+                            break;
+                        case R.id.b5:
+                            edjumlahuang.setText(R.string.denomination3);
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            lkembalian.setText(nf.format(hasil));
+                            break;
                         case R.id.b10:
-                            edjumlahuang.setText("10000");
+                            edjumlahuang.setText(R.string.denomination4);
                             hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
                                     Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b20:
-                            edjumlahuang.setText("20000");
+                            edjumlahuang.setText(R.string.denomination5);
                             hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
                                     Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b50:
-                            edjumlahuang.setText("50000");
+                            edjumlahuang.setText(R.string.denomination6);
                             hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
                                     Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b100:
-                            edjumlahuang.setText("100000");
+                            edjumlahuang.setText(R.string.denomination7);
                             hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
                                     Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
                             lkembalian.setText(nf.format(hasil));
@@ -850,6 +870,8 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                 }
             };
             bpas.setOnClickListener(blistener);
+            b1.setOnClickListener(blistener);
+            b2.setOnClickListener(blistener);
             b5.setOnClickListener(blistener);
             b10.setOnClickListener(blistener);
             b20.setOnClickListener(blistener);

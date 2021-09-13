@@ -113,7 +113,7 @@
     <string name="report_price">Harga</string>
 
     <!--Main Screen-->
-    <string name="main_total_sales">Total Penjualan</string>
+    <string name="main_total_sales">Total Penjualan Hari Ini</string>
     <string name="main_inventory">Persediaan</string>
     <string name="main_sales">Penjualan</string>
     <string name="main_setting">Pengaturan</string>
@@ -178,7 +178,7 @@
     <string name="payment_change">Kembalian</string>
     <string name="payment_total">Total Belanja</string>
     <string name="payment_ok">Oke</string>
-    <string name="payment_pass">PAS</string>
+    <string name="payment_pass">Uang Pas</string>
     <string name="payment_total_money">Jumlah Uang</string>
 
     <!--General Adapter-->
@@ -211,11 +211,13 @@
     <string name="alert_dialog_no">Tidak</string>
     <string name="alert_dialog_cancel">Batal</string>
 
-    <string name="denomination1">2000</string>
-    <string name="denomination2">5000</string>
-    <string name="denomination3">10000</string>
-    <string name="denomination4">50000</string>
-    <string name="denomination5">100000</string>
+    <string name="denomination1">1000</string>
+    <string name="denomination2">2000</string>
+    <string name="denomination3">5000</string>
+    <string name="denomination4">10000</string>
+    <string name="denomination5">20000</string>
+    <string name="denomination6">50000</string>
+    <string name="denomination7">100000</string>
 
     <string name="currency">Rp.</string>
 
