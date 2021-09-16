@@ -116,6 +116,7 @@ public class LaporanRankingActivity extends AppCompatActivity {
                         cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                         String tanggalkini = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
                         edtanggal_dari.setText(tanggalkini);
+                        loadreport();
                     }
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
@@ -148,7 +149,7 @@ public class LaporanRankingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS");
-                File laporandirectori = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/report");
+                File laporandirectori = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/laporan");
                 if (ActivityCompat.checkSelfPermission(LaporanRankingActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                         != PackageManager.PERMISSION_GRANTED &&
                         ActivityCompat.checkSelfPermission(LaporanRankingActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -180,7 +181,7 @@ public class LaporanRankingActivity extends AppCompatActivity {
                 String ddari = edtanggal_dari.getText().toString();
                 String dhingga = edtanggal_hingga.getText().toString();
                 laporanfile = new File(Environment.getExternalStorageDirectory(),
-                        "EpsonRetailPOS/report/ranking-" + ddari + "-" + dhingga + ".csv");
+                        "EpsonRetailPOS/laporan/ranking-" + ddari + "-" + dhingga + ".csv");
 
                 if (!laporanfile.exists()) {
                     try {
@@ -218,7 +219,7 @@ public class LaporanRankingActivity extends AppCompatActivity {
                     AlertDialog.Builder adb = new AlertDialog.Builder(LaporanRankingActivity.this);
                     adb.setTitle("Information");
                     adb.setMessage("Data berhasil disimpan, data tersimpan pada internal memori " +
-                            "direktori EpsonRetailPOS (EpsonRetailPOS/Report)");
+                            "direktori EpsonRetailPOS (EpsonRetailPOS/laporan)");
                     adb.setPositiveButton("Open File", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

@@ -265,6 +265,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                     double harga_jual = lsdata.get(posisiindex).getHarga_jual();
                     lsdata.get(posisiindex).setJumlah(jumlahawal + 1);
                     lsdata.get(posisiindex).setTotal((harga_jual - diskon) * (jumlahawal + 1));
+                    Toast.makeText(TambahPenjualanActivity.this, (harga_jual - diskon) * (jumlahawal + 1)+" ", Toast.LENGTH_SHORT).show();
                 }
                 adapter.notifyDataSetChanged();
                 double total = 0;
@@ -742,7 +743,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
             b50.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination6));
             b100.setText(getResources().getString(R.string.currency) + " " + getResources().getString(R.string.denomination7));
             ltotalbelanja.setText(ltotal.getText().toString());
-            final double kembali = 0 - Oneforallfunc.Stringtodouble(ltotal.getText().toString().replace(".", ""));
+            final double kembali = 0 - Oneforallfunc.Stringtodouble(ltotal.getText().toString().replace(".", "").replace(",",""));
             lkembalian.setText(nf.format(kembali));
             adb.setTitle("Payment");
             adb.setView(vi);
@@ -757,7 +758,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
             boke.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (Double.parseDouble(lkembalian.getText().toString())<0){
+                    if (Double.parseDouble(lkembalian.getText().toString().replace(".", "").replace(",",""))<0){
                         Toast.makeText(TambahPenjualanActivity.this,"Jumlah uang masih kurang", Toast.LENGTH_SHORT).show();
                     }else {
                         SQLiteDatabase db = dbo.getReadableDatabase();
@@ -818,51 +819,51 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                                         Toast.makeText(TambahPenjualanActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
                                         ex.printStackTrace();
                                     }*/
-                            edjumlahuang.setText(ltotalbelanja.getText().toString().replace(".", ""));
-                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
-                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            edjumlahuang.setText(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "").replace(",","")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b1:
                             edjumlahuang.setText(R.string.denomination1);
-                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
-                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "").replace(",","")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b2:
                             edjumlahuang.setText(R.string.denomination2);
-                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
-                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "").replace(",","")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b5:
                             edjumlahuang.setText(R.string.denomination3);
-                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
-                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "").replace(",","")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b10:
                             edjumlahuang.setText(R.string.denomination4);
-                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
-                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "").replace(",","")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b20:
                             edjumlahuang.setText(R.string.denomination5);
-                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
-                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "").replace(",","")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b50:
                             edjumlahuang.setText(R.string.denomination6);
-                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
-                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "").replace(",","")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                             lkembalian.setText(nf.format(hasil));
                             break;
                         case R.id.b100:
                             edjumlahuang.setText(R.string.denomination7);
-                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "")) -
-                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", ""));
+                            hasil = Oneforallfunc.Stringtodouble(edjumlahuang.getText().toString().replace(".", "").replace(",","")) -
+                                    Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                             lkembalian.setText(nf.format(hasil));
                             //Toast.makeText(getApplicationContext(),ltotalbelanja.getText().toString(),Toast.LENGTH_LONG).show();
                             break;
@@ -887,10 +888,10 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     double jumlahuang = Oneforallfunc.Stringtodouble(String.valueOf(s));
-                    double jumlahbelanja = Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(",", ""));
+                    double jumlahbelanja = Oneforallfunc.Stringtodouble(ltotalbelanja.getText().toString().replace(".", "").replace(",",""));
                     double kembali = jumlahuang - jumlahbelanja;
                     lkembalian.setText(nf.format(kembali));
-
+                    //Toast.makeText(getApplicationContext(),jumlahuang+" "+jumlahbelanja+" "+kembali,Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -1084,7 +1085,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                 h.lnama_barang.setText(model.get(position).getNama_barang());
                 h.lkode_barang.setText(model.get(position).getKode_barang());
                 h.lharga_jual.setText("Price : " + nf.format(model.get(position).getHarga_jual()));
-                h.ljumlah.setText(nf.format(model.get(position).getJumlah())+" "+model.get(position).getSatuan()+"/ Disc @ "+nf.format(model.get(position).getDiskon()));
+                h.ljumlah.setText("Jumlah : "+nf.format(model.get(position).getJumlah())+" / Diskon @ Item : Rp. "+nf.format(model.get(position).getDiskon()));
                 double jumlahdiskon = model.get(position).getHarga_jual() * (model.get(position).getDiskon() / 100);
                 double total_harga = (model.get(position).getHarga_jual() - model.get(position).getDiskon()) * model.get(position).getJumlah();
                 h.ltotal_harga.setText(nf.format(total_harga));
@@ -1146,31 +1147,31 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         AlertDialog.Builder adb=new AlertDialog.Builder(ct);
-                        adb.setTitle("Edit qty and discount");
+                        adb.setTitle("Edit Diskon");
                         LinearLayout ll = new LinearLayout(TambahPenjualanActivity.this);
                         ll.setOrientation(LinearLayout.VERTICAL);
                         TextView tvjumlah = new TextView(TambahPenjualanActivity.this);
-                        tvjumlah.setText("Quantity");
+                        tvjumlah.setText("Jumlah Barang");
                         final EditText edjumlah = new EditText(TambahPenjualanActivity.this);
                         edjumlah.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
                         edjumlah.setText(nf.format(model.get(position).getJumlah()));
                         final TextView tvdiskon = new TextView(TambahPenjualanActivity.this);
-                        tvdiskon.setText("Discount (Actual Deduction)");
+                        tvdiskon.setText("Diskon (@ Item)");
                         final EditText eddiskon = new EditText(TambahPenjualanActivity.this);
-                        eddiskon.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
-                        eddiskon.setText(nf.format(model.get(position).getDiskon()));
+                        eddiskon.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL|InputType.TYPE_CLASS_NUMBER);
+                        eddiskon.setHint(Math.round(model.get(position).getDiskon())+"");
                         ll.setPadding(30, 30, 30, 30);
-                        ll.addView(tvjumlah);
-                        ll.addView(edjumlah);
+                        //ll.addView(tvjumlah);
+                        //ll.addView(edjumlah);
                         ll.addView(tvdiskon);
                         ll.addView(eddiskon);
                         adb.setView(ll);
                         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                model.get(position).setJumlah(Oneforallfunc.Stringtodouble(edjumlah.getText().toString().replace(".","")));
-                                model.get(position).setDiskon(Oneforallfunc.Stringtodouble(eddiskon.getText().toString().replace(".","")));
-                                double total_harga = model.get(position).getJumlah() * (model.get(position).getHarga_jual() - model.get(position).getDiskon());
+                                model.get(position).setJumlah(Oneforallfunc.Stringtodouble(edjumlah.getText().toString().replace(".","").replace(",","")));
+                                model.get(position).setDiskon(Double.parseDouble(eddiskon.getText().toString()));
+                                double total_harga = model.get(position).getHarga_jual() - model.get(position).getDiskon();
                                 model.get(position).setTotal(total_harga);
                                 notifyItemChanged(position);
                                 double total = 0;

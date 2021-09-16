@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -251,7 +252,76 @@ public class PenjualanActivity extends AppCompatActivity {
                                         }
                                         break;*/
                                     case R.id.mhapus:
-                                        AlertDialog.Builder adb=new AlertDialog.Builder(ct);
+                                        sp=getApplicationContext().getSharedPreferences("config",0);
+                                        String namapengguna=sp.getString("username","none");
+                                        SQLiteDatabase db = dbo.getReadableDatabase();
+                                        Cursor c = db.rawQuery("SELECT password FROM pengguna WHERE username=\""+namapengguna+"\"", null);
+                                        c.moveToFirst();
+                                        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                                        final View formsView = inflater.inflate(R.layout.delete_confirmation, null, false);
+                                        final EditText password = (EditText) formsView.findViewById(R.id.pass_admin);
+                                        TextView tvInfo = (TextView) formsView.findViewById(R.id.infodelete);
+
+                                        tvInfo.setText("Anda yakin ingin menghapus "+ model.get(position).getKode_penjualan_master() + " ? ");
+                                        new AlertDialog.Builder(PenjualanActivity.this)
+                                                .setView(formsView)
+                                                .setTitle("Confirmation")
+                                                .setCancelable(false)
+                                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        if((password.getText().toString()).equals(c.getString(0))){
+                                                            c.close();
+                                                            db.close();
+                                                            SQLiteDatabase db=dbo.getWritableDatabase();
+                                                            db.beginTransaction();
+                                                            try {
+                                                                Cursor c=db.rawQuery("SELECT kode_barang,jumlah FROM penjualan_detail WHERE kode_penjualan_master='"+model.get(position).getKode_penjualan_master()+"'",null);
+                                                                while (c.moveToNext()){
+                                                                    Cursor ccek=db.rawQuery("SELECT tipe_barang FROM persediaan WHERE kode_barang='"+c.getString(0)+"'",null);
+                                                                    if(ccek.moveToFirst()){
+                                                                        if(ccek.getInt(0)==1){
+                                                                            String kode_barang_racik =  c.getString(0);
+                                                                            Cursor ccekup = db.rawQuery("SELECT kode_barang_isi,jumlah_isi FROM racikan WHERE kode_barang_racik='" + kode_barang_racik + "'", null);
+                                                                            while (ccekup.moveToNext()) {
+                                                                                db.execSQL("UPDATE persediaan SET jumlah_barang=jumlah_barang+" + (ccekup.getDouble(1)*c.getDouble(1)) + " " +
+                                                                                        "WHERE kode_barang='" + ccekup.getString(0) + "' ");
+                                                                            }
+                                                                        }else{
+                                                                            db.execSQL("UPDATE persediaan SET jumlah_barang=jumlah_barang+" + c.getDouble(1) + " " +
+                                                                                    "WHERE kode_barang='" + c.getString(0) + "' ");
+                                                                        }
+                                                                    }
+                                                                }
+                                                                db.execSQL("DELETE FROM penjualan_detail  WHERE kode_penjualan_master='"+model.get(position).getKode_penjualan_master()+"'");
+                                                                db.execSQL("DELETE FROM penjualan_master WHERE kode_penjualan_master='"+model.get(position).getKode_penjualan_master()+"'");
+                                                                db.setTransactionSuccessful();
+                                                                model.remove(position);
+                                                                notifyDataSetChanged();
+                                                            }catch (Exception ex){
+                                                                ex.printStackTrace();
+                                                            }finally {
+                                                                db.endTransaction();
+                                                                db.close();
+                                                            }
+                                                            Toast.makeText(PenjualanActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
+                                                        }else{
+                                                            Toast.makeText(PenjualanActivity.this, "Gagal Password Salah!", Toast.LENGTH_SHORT).show();
+                                                            c.close();
+                                                            db.close();
+                                                        }
+                                                    }
+                                                })
+                                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        c.close();
+                                                        db.close();
+                                                    }
+                                                })
+                                                .show();
+                                        /*AlertDialog.Builder adb=new AlertDialog.Builder(ct);
                                         adb.setTitle("Confirmation");
                                         adb.setMessage("Confirm to delete "+model.get(position).getKode_penjualan_master()+" ? ");
                                         adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -297,7 +367,7 @@ public class PenjualanActivity extends AppCompatActivity {
                                                 dialog.dismiss();
                                             }
                                         });
-                                        adb.show();
+                                        adb.show();*/
                                         break;
                                 }
                                 return false;

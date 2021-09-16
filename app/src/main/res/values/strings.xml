@@ -121,7 +121,7 @@
     <string name="main_exit">Keluar</string>
 
     <!--Login Screen-->
-    <string name="username_email">Username Atau Email</string>
+    <string name="username_email">Username</string>
     <string name="login">Masuk</string>
     <string name="login_to_application">Masuk ke Aplikasi</string>
     <string name="do_not_have_account">Belum Punya Akun?</string>
@@ -159,7 +159,7 @@
     <string name="pos_transaction_no">No. Transaksi</string>
     <string name="pos_simpan">Pending</string>
     <string name="pos_bayar">Bayar</string>
-    <string name="pos_edit_message">Ubah Jumlah dan Diskon </string>
+    <string name="pos_edit_message">Ubah Diskon </string>
 
     <!--Add Item activity_tambah_persediaan-->
     <string name="add_item_title">Tambah Barang</string>

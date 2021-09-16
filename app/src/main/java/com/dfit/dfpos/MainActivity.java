@@ -56,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
         if (!internalstorage.exists()) {
             internalstorage.mkdirs();
         }
-        File kasiroffbackup=new File(Environment.getExternalStorageDirectory(),"FnBApps");
+        File kasiroffbackup=new File(Environment.getExternalStorageDirectory(),"EpsonRetailPOS");
         if(!kasiroffbackup.exists()){
             kasiroffbackup.mkdirs();
         }
 
-        File laporandirectori=new File(Environment.getExternalStorageDirectory(),"FnBApps/laporan");
+        File laporandirectori=new File(Environment.getExternalStorageDirectory(),"EpsonRetailPOS/laporan");
         if(!laporandirectori.exists()){
             laporandirectori.mkdirs();
         }
@@ -93,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
                             android.Manifest.permission.CAMERA,
                             Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-            File kasiroffbackup=new File(Environment.getExternalStorageDirectory(),"FnBApps");
+            File kasiroffbackup=new File(Environment.getExternalStorageDirectory(),"EpsonRetailPOS");
             if(!kasiroffbackup.exists()){
                 kasiroffbackup.mkdirs();
             }
-            File laporandirectori=new File(Environment.getExternalStorageDirectory(),"FnBApps/report");
+            File laporandirectori=new File(Environment.getExternalStorageDirectory(),"EpsonRetailPOS/laporan");
             if(!laporandirectori.exists()){
                 laporandirectori.mkdirs();
             }

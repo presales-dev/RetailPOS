@@ -23,6 +23,7 @@ import android.support.v7.widget.RecyclerView;*/
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,10 +83,8 @@ public class CariBarangActivity extends AppCompatActivity {
                     loaddata();
                     currentoffset = currentoffset + 100;
                 }
-
             }
         });
-
         caridata();
         reloaddata();
         Bundle ex = getIntent().getExtras();
@@ -108,17 +107,16 @@ public class CariBarangActivity extends AppCompatActivity {
                                 "jumlah_barang,gambar_barang,tipe_barang,diskon FROM persediaan LIMIT 100 OFFSET " + currentoffset + " ";
                     }
 
-
                     Cursor c = db.rawQuery(query, null);
                     while (c.moveToNext()) {
-
-                        lsdata.add(new CariBarangModel(c.getString(0), c.getString(1),
-                                c.getString(2), c.getInt(3), c.getDouble(4),
-                                c.getDouble(5), c.getString(6), c.getInt(7), c.getDouble(8)));
+                        if(c.getDouble(5)==0){
+                            continue;
+                        }else{
+                            lsdata.add(new CariBarangModel(c.getString(0), c.getString(1),
+                                    c.getString(2), c.getInt(3), c.getDouble(4),
+                                    c.getDouble(5), c.getString(6), c.getInt(7), c.getDouble(8)));
+                        }
                     }
-                    ;
-
-
                     adapter.notifyDataSetChanged();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -156,14 +154,11 @@ public class CariBarangActivity extends AppCompatActivity {
                             }
                             Cursor c = db.rawQuery(query, null);
                             while (c.moveToNext()) {
-
                                 lsdata.add(new CariBarangModel(c.getString(0), c.getString(1),
                                         c.getString(2), c.getInt(3), c.getDouble(4),
                                         c.getDouble(5), c.getString(6), c.getInt(7), c.getDouble(8)));
                             }
                             ;
-
-
                             adapter.notifyDataSetChanged();
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -231,7 +226,6 @@ public class CariBarangActivity extends AppCompatActivity {
                 h.lharga_beli.setText("Buy : " + nf.format(model.get(position).getHarga_beli()));
                 h.lharga_jual.setText("Sell : " + nf.format(model.get(position).getHarga_jual()) + "/" + nf.format(model.get(position).getDiskon()));
                 h.ljumlah.setText("Stock : " + nf.format(model.get(position).getJumlah_barang()) ); //+ " " + model.get(position).getSatuan_barang()
-
                 Glide.with(ct).
                         load(new File(model.get(position).getGambar_barang())).
                         placeholder(R.drawable.ic_assessment_70dp).
@@ -270,8 +264,8 @@ public class CariBarangActivity extends AppCompatActivity {
                                 double harga_beli = TambahPembelianActivity.lsdata.get(posisiindex).getHarga_beli();
                                 TambahPembelianActivity.lsdata.get(posisiindex).setJumlah(jumlahawal + 1);
                                 TambahPembelianActivity.lsdata.get(posisiindex).setTotal(harga_beli * (jumlahawal + 1));
-                                Toast.makeText(ct, model.get(position).getNama_barang() + " Added 1", Toast.LENGTH_SHORT).show();
 
+                                Toast.makeText(ct, model.get(position).getNama_barang() + " Added 1", Toast.LENGTH_SHORT).show();
                             }
 
                         } else if (tipe_transaksi.equals("jual")) {
@@ -286,30 +280,40 @@ public class CariBarangActivity extends AppCompatActivity {
                             }
 
                             if (posisiindex < 0) {
-                                TambahPenjualanActivity.lsdata.add(new TambahPenjualanActivity.TambahpenjualanModel(
-                                        model.get(position).getKode_barang(),
-                                        model.get(position).getNama_barang(),
-                                        model.get(position).getSatuan_barang(),
-                                        model.get(position).getHarga_jual(),
-                                        1,
-                                        (model.get(position).getHarga_jual() - (model.get(position).getHarga_jual() * (model.get(position).getDiskon() / 100))) * 1,
-                                        model.get(position).getDiskon(),
-                                        model.get(position).getGambar_barang(),
-                                        model.get(position).getTipe_barang(),
-                                        model.get(position).getHarga_beli()
-
-                                ));
-                                Toast.makeText(ct, "1 Item Added", Toast.LENGTH_SHORT).show();
+                                double input_add = Double.parseDouble(h.addcount.getText().toString());
+                                double jumlahawal = model.get(position).getJumlah_barang();
+                                if(jumlahawal-input_add<0){
+                                    Toast.makeText(ct, "Stok "+model.get(position).getNama_barang() + " Tidak Cukup hanya tersedia "+Math.round(jumlahawal), Toast.LENGTH_SHORT).show();
+                                }else{
+                                    TambahPenjualanActivity.lsdata.add(new TambahPenjualanActivity.TambahpenjualanModel(
+                                            model.get(position).getKode_barang(),
+                                            model.get(position).getNama_barang(),
+                                            model.get(position).getSatuan_barang(),
+                                            model.get(position).getHarga_jual(),
+                                            input_add,
+                                            (model.get(position).getHarga_jual() - (model.get(position).getHarga_jual() * (model.get(position).getDiskon() / 100))) * 1,
+                                            model.get(position).getDiskon(),
+                                            model.get(position).getGambar_barang(),
+                                            model.get(position).getTipe_barang(),
+                                            model.get(position).getHarga_beli()
+                                    ));
+                                    Toast.makeText(ct, model.get(position).getNama_barang() + " Berhasil ditambahkan sebanyak "+Math.round(input_add), Toast.LENGTH_SHORT).show();
+                                }
                             } else {
                                 double diskonpersen = TambahPenjualanActivity.lsdata.get(posisiindex).getDiskon();
                                 double diskonnominal = TambahPenjualanActivity.lsdata.get(posisiindex).getHarga_jual() * (diskonpersen / 100);
                                 double diskon = TambahPenjualanActivity.lsdata.get(posisiindex).getDiskon();
                                 double jumlahawal = TambahPenjualanActivity.lsdata.get(posisiindex).getJumlah();
                                 double harga_jual = TambahPenjualanActivity.lsdata.get(posisiindex).getHarga_jual();
-                                TambahPenjualanActivity.lsdata.get(posisiindex).setJumlah(jumlahawal + 1);
-                                TambahPenjualanActivity.lsdata.get(posisiindex).setTotal((harga_jual - diskon) * (jumlahawal + 1));
-                                Toast.makeText(ct, model.get(position).getNama_barang() + " Added 1", Toast.LENGTH_SHORT).show();
-
+                                double input_add = Double.parseDouble(h.addcount.getText().toString());
+                                if((model.get(position).getJumlah_barang()-jumlahawal)-input_add<0){
+                                    Toast.makeText(ct, "Stok "+model.get(position).getNama_barang() + " Tidak Cukup, Sisa "+Math.round(model.get(position).getJumlah_barang()-jumlahawal), Toast.LENGTH_SHORT).show();
+                                }else{
+                                    TambahPenjualanActivity.lsdata.get(posisiindex).setJumlah(jumlahawal + input_add);
+                                    TambahPenjualanActivity.lsdata.get(posisiindex).setTotal((harga_jual - diskon) * (jumlahawal + 1));
+                                    int stoksekarang = (int)TambahPenjualanActivity.lsdata.get(posisiindex).getJumlah();
+                                    Toast.makeText(ct, model.get(position).getNama_barang() + " Ditambahkan sebanyak "+ Math.round(input_add)+"\nTotal dikeranjang "+Math.round(input_add+jumlahawal), Toast.LENGTH_SHORT).show();
+                                }
                             }
                         } else if (tipe_transaksi.equals("racik")) {
 
@@ -364,6 +368,7 @@ public class CariBarangActivity extends AppCompatActivity {
     public class Holder extends RecyclerView.ViewHolder {
         TextView lnama_barang, lkodebarang, lharga_beli, lharga_jual, ljumlah;
         ImageView gambar_barang, img_add;
+        EditText addcount;
 
         public Holder(View itemView) {
             super(itemView);
@@ -374,6 +379,7 @@ public class CariBarangActivity extends AppCompatActivity {
             ljumlah = itemView.findViewById(R.id.ljudul);
             gambar_barang = itemView.findViewById(R.id.gambar_barang);
             img_add = itemView.findViewById(R.id.img_add);
+            addcount = itemView.findViewById(R.id.addcount);
         }
     }
 

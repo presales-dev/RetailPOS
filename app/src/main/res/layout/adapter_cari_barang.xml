@@ -85,6 +85,20 @@
                 tools:ignore="VectorDrawableCompat"
                 style="@style/DefaultButton"/>
 
+            <EditText
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:id="@+id/addcount"
+                android:inputType="numberDecimal"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/img_add"
+                android:text="1"
+                />
+
             <TextView
                 android:id="@+id/lkodebarang"
                 android:layout_width="wrap_content"

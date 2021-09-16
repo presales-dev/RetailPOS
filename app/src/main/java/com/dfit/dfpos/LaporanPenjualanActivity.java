@@ -44,7 +44,7 @@ public class LaporanPenjualanActivity extends AppCompatActivity {
     ImageView bimg_tanggal_dari, bimg_tanggal_hingga;
     ListView lvdata;
     TextView ltotal, ljudul, ltanggal, ljumlah, lkode_trans, lnama, lharga, lhtotal;
-    Button bexport;
+    Button bexport,brefresh;
     Dblocalhelper dbo;
     NumberFormat nf = NumberFormat.getInstance();
     reportadapter adapter;
@@ -82,6 +82,7 @@ public class LaporanPenjualanActivity extends AppCompatActivity {
         exportreport();
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
+
     }
 
 
@@ -135,6 +136,7 @@ public class LaporanPenjualanActivity extends AppCompatActivity {
                         cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                         String tanggalkini = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
                         edtanggal_dari.setText(tanggalkini);
+                        loadreport();
                     }
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
@@ -167,7 +169,7 @@ public class LaporanPenjualanActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 File kasiroffbackup = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS");
-                File laporandirectori = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/report");
+                File laporandirectori = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/laporan");
                 if (ActivityCompat.checkSelfPermission(LaporanPenjualanActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
                         != PackageManager.PERMISSION_GRANTED &&
                         ActivityCompat.checkSelfPermission(LaporanPenjualanActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -198,7 +200,7 @@ public class LaporanPenjualanActivity extends AppCompatActivity {
                 File laporanfile = null;
                 String ddari = edtanggal_dari.getText().toString();
                 String dhingga = edtanggal_hingga.getText().toString();
-                laporanfile = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/report/sales-" + ddari + "-" + dhingga + ".csv");
+                laporanfile = new File(Environment.getExternalStorageDirectory(), "EpsonRetailPOS/laporan/sales-" + ddari + "-" + dhingga + ".csv");
 
                 if (!laporanfile.exists()) {
                     try {
@@ -227,11 +229,9 @@ public class LaporanPenjualanActivity extends AppCompatActivity {
                                 "" + c.getString(3) + "," + c.getDouble(4) + "," + c.getDouble(5) + "," +
                                 "" + c.getDouble(6) +","+c.getDouble(7)+ "");
                         sb.append("\n");
-                        c.close();
-                        db.close();
-
                     }
-
+                    c.close();
+                    db.close();
                     bw.write(sb.toString());
                     bw.flush();
                     bw.close();
@@ -239,7 +239,7 @@ public class LaporanPenjualanActivity extends AppCompatActivity {
                     AlertDialog.Builder adb = new AlertDialog.Builder(LaporanPenjualanActivity.this);
                     adb.setTitle("Information");
                     adb.setMessage("Data berhasil disimpan, data tersimpan pada internal memori " +
-                            "direktori EpsonRetailPOS (EpsonRetailPOS/Report)");
+                            "direktori EpsonRetailPOS (EpsonRetailPOS/laporan)");
                     adb.setPositiveButton("Open File", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -314,12 +314,13 @@ public class LaporanPenjualanActivity extends AppCompatActivity {
                 ltanggal.setText(ls.get(position).getTanggal().substring(2));
                 lkode_trans.setText(ls.get(position).getKode_master());
                 lnama.setText(ls.get(position).getNama());
-                if (ls.get(position).getDiskon() == 0) {
-                    ljumlah.setText(nf.format(ls.get(position).getJumlah()));
+                ljumlah.setText(nf.format(ls.get(position).getJumlah()));
+                /*if (ls.get(position).getDiskon() == 0) {
+                    ltotal.setText(nf.format(ls.get(position).getTotal()));
                 } else {
-                    ljumlah.setText(nf.format(ls.get(position).getJumlah()) + "/@" + nf.format(ls.get(position).getDiskon()) + "%");
-                }
-
+                    ltotal.setText(nf.format(ls.get(position).getTotal()));
+                    ljumlah.setText(nf.format(ls.get(position).getJumlah()) + "Diskon" + nf.format(ls.get(position).getDiskon()) + "%");
+                }*/
                 ltotal.setText(nf.format(ls.get(position).getTotal()));
 
 

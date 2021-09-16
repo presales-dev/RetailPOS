@@ -89,11 +89,11 @@ public class PengaturanActivity extends AppCompatActivity {
 
                     TextInputLayout tilnohp_usaha = new TextInputLayout(PengaturanActivity.this);
                     tilnohp_usaha.addView(ednohp_usaha);
-                    tilnohp_usaha.setHint("Handphone No");
+                    tilnohp_usaha.setHint("Email");
 
                     TextInputLayout tilemail = new TextInputLayout(PengaturanActivity.this);
                     tilemail.addView(edemail_usaha);
-                    tilemail.setHint("Email");
+                    tilemail.setHint("No Handphone");
 
                     TextInputLayout tilweb = new TextInputLayout(PengaturanActivity.this);
                     tilweb.addView(edwebsite);

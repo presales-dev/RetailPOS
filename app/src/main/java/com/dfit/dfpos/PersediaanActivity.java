@@ -1,5 +1,6 @@
 package com.dfit.dfpos;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -255,9 +257,61 @@ public class PersediaanActivity extends AppCompatActivity {
                                         startActivity(in);
                                         break;
                                     case R.id.mhapus:
-                                        AlertDialog.Builder adb = new AlertDialog.Builder(ct);
+                                        sp=getApplicationContext().getSharedPreferences("config",0);
+                                        String namapengguna=sp.getString("username","none");
+                                        SQLiteDatabase db = dbo.getReadableDatabase();
+                                        Cursor c = db.rawQuery("SELECT password FROM pengguna WHERE username=\""+namapengguna+"\"", null);
+                                        c.moveToFirst();
+                                        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                                        final View formsView = inflater.inflate(R.layout.delete_confirmation, null, false);
+                                        final EditText password = (EditText) formsView.findViewById(R.id.pass_admin);
+                                        TextView tvInfo = (TextView) formsView.findViewById(R.id.infodelete);
+
+                                        tvInfo.setText("Anda yakin ingin menghapus "+ model.get(position).getNama_barang() + " ? ");
+                                        new AlertDialog.Builder(PersediaanActivity.this)
+                                                .setView(formsView)
+                                                .setTitle("Confirmation")
+                                                .setCancelable(false)
+                                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        if((password.getText().toString()).equals(c.getString(0))){
+                                                            c.close();
+                                                            db.close();
+                                                            SQLiteDatabase db = dbo.getWritableDatabase();
+                                                            db.beginTransaction();
+                                                            try {
+                                                                db.execSQL("DELETE FROM persediaan WHERE kode_barang='" + model.get(position).getKode_barang() + "'");
+                                                                db.execSQL("DELETE FROM racikan WHERE kode_barang_racik='" + model.get(position).getKode_barang() + "'");
+                                                                db.setTransactionSuccessful();
+                                                                model.remove(position);
+                                                                notifyDataSetChanged();
+                                                            } catch (Exception ex) {
+                                                                ex.printStackTrace();
+                                                            } finally {
+                                                                db.endTransaction();
+                                                                db.close();
+                                                            }
+                                                            Toast.makeText(PersediaanActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
+                                                        }else{
+                                                            Toast.makeText(PersediaanActivity.this, "Gagal Password Salah!", Toast.LENGTH_SHORT).show();
+                                                            c.close();
+                                                            db.close();
+                                                        }
+                                                    }
+                                                })
+                                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        c.close();
+                                                        db.close();
+                                                    }
+                                                })
+                                                .show();
+                                        /*AlertDialog.Builder adb = new AlertDialog.Builder(ct);
                                         adb.setTitle("Confirmation");
-                                        adb.setMessage("You would like to delete " + model.get(position).getNama_barang() + " ? ");
+                                        adb.setMessage("You would like to delete "+ model.get(position).getNama_barang() + " ? ");
                                         adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
@@ -283,7 +337,7 @@ public class PersediaanActivity extends AppCompatActivity {
                                                 dialog.dismiss();
                                             }
                                         });
-                                        adb.show();
+                                        adb.show();*/
                                         break;
                                     /*case R.id.mracik:
                                         if(model.get(position).getTipe_persediaan()==0){

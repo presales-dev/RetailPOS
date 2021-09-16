@@ -53,10 +53,11 @@ public class RegisterActivity extends AppCompatActivity {
         edpassword=findViewById(R.id.edpassword);
         edrepassword=findViewById(R.id.edrepassword);
         bsimpan=findViewById(R.id.bsimpan);
-        bsimpan.setEnabled(false);
         bserial=findViewById(R.id.btCekSerial);
         dbo=new Dblocalhelper(this);
 
+        bsimpan.setEnabled(true);
+        bserial.setEnabled(false);
         aggreementpopup();
         simpan();
 
@@ -205,7 +206,7 @@ public class RegisterActivity extends AppCompatActivity {
         bsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!edserial.isEnabled()){
+                if(!bserial.isEnabled()){// release jadi edserial
                     if(edpassword.getText().toString().equals(edrepassword.getText().toString())) {
                         SQLiteDatabase db = dbo.getWritableDatabase();
                         db.beginTransaction();
@@ -248,7 +249,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, getResources().getString(R.string.password_incorrect), Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    Toast.makeText(RegisterActivity.this, getResources().getString(R.string.password_incorrect), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Silakan Verifikasi Serial", Toast.LENGTH_SHORT).show();
                 }
             }
         });
