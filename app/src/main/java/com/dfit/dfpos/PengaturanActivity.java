@@ -59,8 +59,8 @@ public class PengaturanActivity extends AppCompatActivity {
         //ls.add(new Listviewglobaladapter.listglobalmodel("6", "Tipe Tampilan Menu Barang", (sp.getInt("view_tipe",0)==0)?"Tampilan Menu List":"Tampilan Menu Grid" ));
 
         ls.add(new Listviewglobaladapter.listglobalmodel("7", "Tentang Aplikasi", "Application Retail POS V1.0"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("3", "Cadangkan Data", "Cadangkan data anda untuk mengantisipasi kemungkinan data terhapus, file backup akan disimpan pada folder EpsonRetailPOS di internal storage anda"));
-        ls.add(new Listviewglobaladapter.listglobalmodel("4", "Pulihkan Data", "Pulihkan data yang sudah anda cadangkan, default restore file harus ada di dalam folder EpsonRetailPOS di internal storage anda, pastikan data yang ingin anda pulihkan berada didalam folder tersebut "));
+        ls.add(new Listviewglobaladapter.listglobalmodel("3", "Backup Data", "Backup data anda untuk mengantisipasi kemungkinan data terhapus, file backup akan disimpan pada folder EpsonRetailPOS di internal storage anda"));
+        ls.add(new Listviewglobaladapter.listglobalmodel("4", "Restore Data", "Restore data yang sudah anda backup, default restore file harus ada di dalam folder EpsonRetailPOS di internal storage anda, pastikan data yang ingin anda pulihkan berada didalam folder tersebut "));
         //ls.add(new Listviewglobaladapter.listglobalmodel("4", "Backup", "It is recommended to backup your data as it may get destroyed or lost, default backup file is stored in internal storage"));
         //ls.add(new Listviewglobaladapter.listglobalmodel("5", "Restore", "Restore the data you have backup, default restore file have to be in the folder \"kasirkubackup\" in internal storage. Make sure the data you want to restore is in the folder mentioned "));
         final ArrayAdapter<String> adapter = new Listviewglobaladapter(this, ls);

@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText edusername,edpassword;
     Button bmasuk;
-    TextView lcapregister,lregister;
+    TextView lcapregister,lregister,btlupass;
     Dblocalhelper dbo;
     SharedPreferences sp;
 
@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         edpassword=findViewById(R.id.edpassword);
         bmasuk=findViewById(R.id.bmasuk);
         lregister=findViewById(R.id.lregister);
+        btlupass=findViewById(R.id.btlupapass);
         lcapregister=findViewById(R.id.lcapregister);
         dbo=new Dblocalhelper(this);
         sp=getApplicationContext().getSharedPreferences("config",0);
@@ -55,6 +56,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(){
+        btlupass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(LoginActivity.this,LupaPasswordActivity.class);
+                startActivity(in);
+            }
+        });
         bmasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
