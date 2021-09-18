@@ -435,7 +435,8 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                 Toast.makeText(TambahPenjualanActivity.this, "Sales Data Successfully Saved", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder adb = new AlertDialog.Builder(TambahPenjualanActivity.this);
                 adb.setTitle("Confirmation");
-                adb.setMessage("Do you want to print receipt?");
+                adb.setMessage("Print Receipt?");
+                adb.setCancelable(false);
                 adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -473,6 +474,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                 adb.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        lsdata.clear();
                         dialog.dismiss();
                     }
                 });
@@ -704,7 +706,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                 }
                 rawsavedata(1);
                 ad.dismiss();
-                lsdata.clear();
+                //lsdata.clear();
                 adapter.notifyDataSetChanged();
                 ednotrans.setText(dbo.getkodetransaksi("PJ"));
                 edtanggaltrans.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
@@ -782,7 +784,7 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                         }
                         rawsavedata(1);
                         ad.dismiss();
-                        lsdata.clear();
+                        //lsdata.clear();
                         adapter.notifyDataSetChanged();
                         ednotrans.setText(dbo.getkodetransaksi("PJ"));
                         edtanggaltrans.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));

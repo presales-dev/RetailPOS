@@ -6,16 +6,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AddPrinterActivity">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btDiscovery"
-        android:text="Discovery"/>
 
-    <EditText
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtTarget"/>
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Discovery"
+            android:id="@+id/btnDiscovery" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_target"
+            android:id="@+id/txtTarget"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColor="#000000"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtTarget"
+            android:layout_marginBottom="10dp"
+            android:enabled="false"
+            android:text="USB:" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/title_printerseries"
+            android:id="@+id/txtModel"
+            android:textColor="#000000" />
+
+        <Spinner
+            android:id="@+id/spnModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="left" />
+
+    </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
