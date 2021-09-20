@@ -1,6 +1,7 @@
 package com.dfit.dfpos;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -23,9 +24,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.epson.epos2.Epos2CallbackCode;
 import com.epson.epos2.Epos2Exception;
 import com.epson.epos2.Log;
 import com.epson.epos2.printer.Printer;
@@ -43,6 +46,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AddPrinterActivity extends AppCompatActivity implements View.OnClickListener,ReceiveListener {
@@ -53,6 +57,8 @@ public class AddPrinterActivity extends AppCompatActivity implements View.OnClic
     private static final int REQUEST_PERMISSION = 100;
     private static final int DISCONNECT_INTERVAL = 500;//millseconds
 
+
+    private ProgressDialog mProgressDialog = null;
     private Context mContext = null;
     public static EditText mEditTarget = null;
     public static Spinner mSpnSeries = null;
@@ -65,6 +71,7 @@ public class AddPrinterActivity extends AppCompatActivity implements View.OnClic
         sp = getApplicationContext().getSharedPreferences("config", 0);
         ed = sp.edit();
         dbo = new Dblocalhelper(this);
+        mProgressDialog = new ProgressDialog(this);
         requestRuntimePermission();
 
         enableLocationSetting();
@@ -125,6 +132,7 @@ public class AddPrinterActivity extends AppCompatActivity implements View.OnClic
                 ;
             }
         });
+
 
         mEditTarget = (EditText)findViewById(R.id.edtTarget);
 

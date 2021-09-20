@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,11 +66,15 @@ public class RegisterActivity extends AppCompatActivity {
         bserial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkValidation()) {
-                    if (CommonMethod.isNetworkAvailable(RegisterActivity.this))
-                        verfySerial(edserial.getText().toString(), ednohp.getText().toString(),countryID);
-                    else
-                        CommonMethod.showAlert("Internet Connectivity Failure", RegisterActivity.this);
+                if(!cekisianserial()){
+                    if (checkValidation()) {
+                        if (CommonMethod.isNetworkAvailable(RegisterActivity.this))
+                            verfySerial(edserial.getText().toString(), ednohp.getText().toString(),countryID);
+                        else
+                            CommonMethod.showAlert("Internet Connectivity Failure", RegisterActivity.this);
+                    }
+                }else{
+
                 }
             }
         });
@@ -157,6 +162,32 @@ public class RegisterActivity extends AppCompatActivity {
 
         ad.show();
     }
+
+    public boolean isEditTextEmpty(EditText mInput){
+        if(TextUtils.isEmpty(mInput.getText())){
+            mInput.setError("Tidak boleh kosong");
+            return false;
+        }else{
+            return true;
+        }
+    }
+    private boolean cekisianserial(){
+        if(isEditTextEmpty(ednama_usaha) && isEditTextEmpty(edalamat) && isEditTextEmpty(ednohp) && isEditTextEmpty(edemail) && isEditTextEmpty(edserial)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    private boolean cekisianregis(){
+        if(isEditTextEmpty(edusername) && isEditTextEmpty(edpassword) && isEditTextEmpty(edrepassword)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
     private void simpan(){
         /*bserial.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,50 +237,54 @@ public class RegisterActivity extends AppCompatActivity {
         bsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!bserial.isEnabled()){// release jadi edserial
-                    if(edpassword.getText().toString().equals(edrepassword.getText().toString())) {
-                        SQLiteDatabase db = dbo.getWritableDatabase();
-                        db.beginTransaction();
-                        try {
-                            String currenttime = new SimpleDateFormat("yyyyMMddHHmmssSSSSSS").format(new Date());
-                            String nama_usaha = ednama_usaha.getText().toString();
-                            String alamat = edalamat.getText().toString();
-                            String nohp = ednohp.getText().toString();
-                            String email = edemail.getText().toString();
-                            String website = edserial.getText().toString();
-                            String username = edusername.getText().toString();
-                            String password = edpassword.getText().toString();
-                            db.execSQL("UPDATE perusahaan SET nama_usaha='" + nama_usaha + "', alamat_usaha='" + alamat + "'," +
-                                    "nohp_usaha='" + nohp + "',email_usaha='" + email + "',website='" + website + "',date_created='"+currenttime+"' WHERE id=1");
-                            db.execSQL("INSERT INTO pengguna(kode_user,email,username,password,read_persediaan,write_persediaan, " +
-                                    "read_pembelian,write_pembelian,read_penjualan,write_penjualan,read_laporan,read_user)" +
-                                    "VALUES('1001','"+email+"','"+username+"','"+password+"',1,1,1,1,1,1,1,1)");
-                            db.setTransactionSuccessful();
-                            AlertDialog.Builder adb = new AlertDialog.Builder(RegisterActivity.this);
-                            adb.setTitle(getResources().getString(R.string.information));
-                            adb.setMessage(getResources().getString(R.string.registrationAlert));
-                            adb.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-                            });
-                            adb.show();
-                        } catch (Exception ex) {
-                            deleteDatabase("kasirku.db");
-                            AlertDialog.Builder adb=new AlertDialog.Builder(RegisterActivity.this);
-                            adb.setTitle(getResources().getString(R.string.information));
-                            adb.setMessage(ex.getMessage());
-                            adb.show();
-                        } finally {
-                            db.endTransaction();
-                            db.close();
+                if (!cekisianregis() && !cekisianserial()) {
+
+                } else {
+                    if(!bserial.isEnabled()){// release jadi edserial
+                        if(edpassword.getText().toString().equals(edrepassword.getText().toString())) {
+                            SQLiteDatabase db = dbo.getWritableDatabase();
+                            db.beginTransaction();
+                            try {
+                                String currenttime = new SimpleDateFormat("yyyyMMddHHmmssSSSSSS").format(new Date());
+                                String nama_usaha = ednama_usaha.getText().toString();
+                                String alamat = edalamat.getText().toString();
+                                String nohp = ednohp.getText().toString();
+                                String email = edemail.getText().toString();
+                                String website = edserial.getText().toString();
+                                String username = edusername.getText().toString();
+                                String password = edpassword.getText().toString();
+                                db.execSQL("UPDATE perusahaan SET nama_usaha='" + nama_usaha + "', alamat_usaha='" + alamat + "'," +
+                                        "nohp_usaha='" + nohp + "',email_usaha='" + email + "',website='" + website + "',date_created='"+currenttime+"' WHERE id=1");
+                                db.execSQL("INSERT INTO pengguna(kode_user,email,username,password,read_persediaan,write_persediaan, " +
+                                        "read_pembelian,write_pembelian,read_penjualan,write_penjualan,read_laporan,read_user)" +
+                                        "VALUES('1001','"+email+"','"+username+"','"+password+"',1,1,1,1,1,1,1,1)");
+                                db.setTransactionSuccessful();
+                                AlertDialog.Builder adb = new AlertDialog.Builder(RegisterActivity.this);
+                                adb.setTitle(getResources().getString(R.string.information));
+                                adb.setMessage(getResources().getString(R.string.registrationAlert));
+                                adb.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        finish();
+                                    }
+                                });
+                                adb.show();
+                            } catch (Exception ex) {
+                                deleteDatabase("kasirku.db");
+                                AlertDialog.Builder adb=new AlertDialog.Builder(RegisterActivity.this);
+                                adb.setTitle(getResources().getString(R.string.information));
+                                adb.setMessage(ex.getMessage());
+                                adb.show();
+                            } finally {
+                                db.endTransaction();
+                                db.close();
+                            }
+                        }else{
+                            Toast.makeText(RegisterActivity.this, getResources().getString(R.string.password_incorrect), Toast.LENGTH_SHORT).show();
                         }
-                    }else{
-                        Toast.makeText(RegisterActivity.this, getResources().getString(R.string.password_incorrect), Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(RegisterActivity.this, "Silakan Verifikasi Serial", Toast.LENGTH_SHORT).show();
                     }
-                }else {
-                    Toast.makeText(RegisterActivity.this, "Silakan Verifikasi Serial", Toast.LENGTH_SHORT).show();
                 }
             }
         });

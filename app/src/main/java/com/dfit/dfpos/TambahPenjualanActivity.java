@@ -443,15 +443,15 @@ public class TambahPenjualanActivity extends AppCompatActivity {
                         StringBuilder sb = new StringBuilder();
                         double total = 0;
                         for (int i = 0; i < lsdata.size(); i++) {
-                            if (lsdata.get(i).getDiskon() > 0) {
+                            /*if (lsdata.get(i).getDiskon() > 0) {
                                 //sb.append(i + 1 + "." + lsdata.get(i).getNama_barang() + " x " + nf.format(lsdata.get(i).getJumlah()) + "/@" + nf.format(lsdata.get(i).getDiskon()) + "% = " + nf.format(lsdata.get(i).getTotal()) + "\n");
-                            } else {
-                                sb.append(nf.format(lsdata.get(i).getJumlah())+"\t"+lsdata.get(i).getNama_barang()+"\n\t\t\t\t\t"+(int)lsdata.get(i).getTotal()+"\n");
+                            } else {*/
+                                sb.append(lsdata.get(i).getNama_barang()+" x "+Math.round((int)lsdata.get(i).getJumlah())+"\n");
+                                sb.append("\t\t\t\t"+(int)lsdata.get(i).getTotal()+"\n");
                                 total = total + lsdata.get(i).getTotal();
                                 //sb.append(nf.format(lsdata.get(i).getJumlah())+"\t"+lsdata.get(i).getNama_barang()+"\t\t\t\t"+nf.format(lsdata.get(i).getTotal())+"\n");
                                 //sb.append(i + 1 + "." + lsdata.get(i).getNama_barang() + " x " + nf.format(lsdata.get(i).getJumlah()) + " = " + nf.format(lsdata.get(i).getTotal()) + "\n");
-                            }
-
+                            //}
                         }
                         //sb.append(lsdata.get(0).getNama_barang());
                         Intent in = new Intent(TambahPenjualanActivity.this, CetakStruk.class);

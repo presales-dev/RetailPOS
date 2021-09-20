@@ -17,6 +17,7 @@ import android.provider.MediaStore;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
@@ -215,103 +216,125 @@ public class TambahPersediaanActivity extends AppCompatActivity {
         });
     }
 
+    public boolean isEditTextEmpty(EditText mInput){
+        if(TextUtils.isEmpty(mInput.getText())){
+            mInput.setError("Tidak boleh kosong");
+            return false;
+        }else{
+            return true;
+        }
+    }
+    private boolean cekisian(){
+        if(isEditTextEmpty(edkode_barang) && isEditTextEmpty(ednama_barang) && isEditTextEmpty(edharga_beli) && isEditTextEmpty(edharga_jual) && isEditTextEmpty(edjumlah)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
     private void savedata() {
         bsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fileimg = "";
-                try {
-                    BitmapDrawable bmpd = (BitmapDrawable) img_barang.getDrawable();
-                    Bitmap bmp = bmpd.getBitmap();
-                    File dirapp = new File(getFilesDir(), "kasirkuimage");
-                    SQLiteDatabase dbr = dbo.getReadableDatabase();
-                    Cursor c = dbr.rawQuery("SELECT COUNT(kode_barang),gambar_barang FROM persediaan WHERE kode_barang='" + kode_barang + "' LIMIT 1", null);
-                    c.moveToFirst();
-                    if (c.getInt(0) == 0) {
-                        fileimg = dirapp.getPath() + "/" + System.currentTimeMillis() + ".jpg";
-                    } else {
-                        File fldel = new File(getFilesDir(), "kasirkuimage/" + c.getString(1));
-                        fldel.delete();
-                        fileimg = dirapp.getPath() + "/" + System.currentTimeMillis() + ".jpg";
-                    }
+                if(!cekisian()){
+
+                }else{
+                    String fileimg = "";
                     try {
-                        FileOutputStream fos = new FileOutputStream(fileimg);
-                        bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-                        fos.flush();
-                        fos.close();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        BitmapDrawable bmpd = (BitmapDrawable) img_barang.getDrawable();
+                        Bitmap bmp = bmpd.getBitmap();
+                        File dirapp = new File(getFilesDir(), "kasirkuimage");
+                        SQLiteDatabase dbr = dbo.getReadableDatabase();
+                        Cursor c = dbr.rawQuery("SELECT COUNT(kode_barang),gambar_barang FROM persediaan WHERE kode_barang='" + kode_barang + "' LIMIT 1", null);
+                        c.moveToFirst();
+                        if (c.getInt(0) == 0) {
+                            fileimg = dirapp.getPath() + "/" + System.currentTimeMillis() + ".jpg";
+                        } else {
+                            File fldel = new File(getFilesDir(), "kasirkuimage/" + c.getString(1));
+                            fldel.delete();
+                            fileimg = dirapp.getPath() + "/" + System.currentTimeMillis() + ".jpg";
+                        }
+                        try {
+                            FileOutputStream fos = new FileOutputStream(fileimg);
+                            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                            fos.flush();
+                            fos.close();
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (Exception ex) {
+                        fileimg = "none";
+                        Toast.makeText(TambahPersediaanActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception ex) {
-                    fileimg = "none";
-                    Toast.makeText(TambahPersediaanActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-                SQLiteDatabase db = dbo.getWritableDatabase();
-                db.beginTransaction();
-                String tipe_barang = String.valueOf(stipe_persediaan.getSelectedItemPosition());
-                try {
-                    String currenttime = new SimpleDateFormat("yyyyMMddHHmmssSSSSSS").format(new Date());
-                    if (kode_barang.equals("")) {
-                        db.execSQL("INSERT INTO persediaan" +
-                                "(kode_barang,nama_barang,satuan_barang,jumlah_barang,harga_beli,harga_jual,gambar_barang," +
-                                "tipe_barang,diskon,date_created) " +
-                                "VALUES('" + edkode_barang.getText().toString() + "'," +
-                                "'" + ednama_barang.getText().toString() + "'," +
-                                "'1'," + //ini satuan
-                                "" + Oneforallfunc.Stringtoint(edjumlah.getText().toString()) + "," +
-                                "" + Oneforallfunc.Stringtodouble(edharga_beli.getText().toString()) + "," +
-                                "" + Oneforallfunc.Stringtodouble(edharga_jual.getText().toString()) + "," +
-                                "'" + fileimg + "'," +
-                                "" + tipe_barang + "," +
-                                "" + Oneforallfunc.Stringtodouble(eddiskon.getText().toString()) + "," +
-                                "'" + currenttime + "')");
-                    } else {
-                        db.execSQL("UPDATE persediaan SET kode_barang='" + edkode_barang.getText().toString() + "'," +
-                                "nama_barang='" + ednama_barang.getText().toString() + "'," +
-                                "satuan_barang='" + edsatuan.getText().toString() + "'," +
-                                "jumlah_barang=" + Oneforallfunc.Stringtodouble(edjumlah.getText().toString()) + "," +
-                                "harga_beli=" + Oneforallfunc.Stringtodouble(edharga_beli.getText().toString()) + "," +
-                                "harga_jual=" + Oneforallfunc.Stringtodouble(edharga_jual.getText().toString()) + "," +
-                                "gambar_barang='" + fileimg + "'," +
-                                "tipe_barang=" + Oneforallfunc.Stringtoint(tipe_barang) + "," +
-                                "diskon=" + Oneforallfunc.Stringtodouble(eddiskon.getText().toString()) + " " +
-                                "WHERE kode_barang='" + kode_barang + "' ");
+                    SQLiteDatabase db = dbo.getWritableDatabase();
+                    db.beginTransaction();
+                    String tipe_barang = String.valueOf(stipe_persediaan.getSelectedItemPosition());
+                    try {
+                        String currenttime = new SimpleDateFormat("yyyyMMddHHmmssSSSSSS").format(new Date());
+                        if (kode_barang.equals("")) {
+                            db.execSQL("INSERT INTO persediaan" +
+                                    "(kode_barang,nama_barang,satuan_barang,jumlah_barang,harga_beli,harga_jual,gambar_barang," +
+                                    "tipe_barang,diskon,date_created) " +
+                                    "VALUES('" + edkode_barang.getText().toString() + "'," +
+                                    "'" + ednama_barang.getText().toString() + "'," +
+                                    "'1'," + //ini satuan
+                                    "" + Oneforallfunc.Stringtoint(edjumlah.getText().toString()) + "," +
+                                    "" + Oneforallfunc.Stringtodouble(edharga_beli.getText().toString()) + "," +
+                                    "" + Oneforallfunc.Stringtodouble(edharga_jual.getText().toString()) + "," +
+                                    "'" + fileimg + "'," +
+                                    "" + tipe_barang + "," +
+                                    "" + Oneforallfunc.Stringtodouble(eddiskon.getText().toString()) + "," +
+                                    "'" + currenttime + "')");
+                        } else {
+                            db.execSQL("UPDATE persediaan SET kode_barang='" + edkode_barang.getText().toString() + "'," +
+                                    "nama_barang='" + ednama_barang.getText().toString() + "'," +
+                                    "satuan_barang='" + edsatuan.getText().toString() + "'," +
+                                    "jumlah_barang=" + Oneforallfunc.Stringtodouble(edjumlah.getText().toString()) + "," +
+                                    "harga_beli=" + Oneforallfunc.Stringtodouble(edharga_beli.getText().toString()) + "," +
+                                    "harga_jual=" + Oneforallfunc.Stringtodouble(edharga_jual.getText().toString()) + "," +
+                                    "gambar_barang='" + fileimg + "'," +
+                                    "tipe_barang=" + Oneforallfunc.Stringtoint(tipe_barang) + "," +
+                                    "diskon=" + Oneforallfunc.Stringtodouble(eddiskon.getText().toString()) + " " +
+                                    "WHERE kode_barang='" + kode_barang + "' ");
+                        }
+                        db.setTransactionSuccessful();
+                        Toast.makeText(TambahPersediaanActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(TambahPersediaanActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    } finally {
+                        db.endTransaction();
+                        db.close();
+                        finish();
                     }
-                    db.setTransactionSuccessful();
-                    Toast.makeText(TambahPersediaanActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(TambahPersediaanActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                } finally {
-                    db.endTransaction();
-                    db.close();
-                    finish();
+
+                    if (tipe_barang.equals("1")) {
+                        AlertDialog.Builder adb = new AlertDialog.Builder(TambahPersediaanActivity.this);
+                        adb.setTitle("Information");
+                        adb.setMessage("Adding mixing item?");
+                        adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intn = new Intent(TambahPersediaanActivity.this, RacikActivity.class);
+                                intn.putExtra("kode_barang", edkode_barang.getText().toString());
+                                intn.putExtra("nama_barang", ednama_barang.getText().toString());
+                                startActivity(intn);
+                            }
+                        });
+                        adb.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        adb.setCancelable(false);
+                        adb.show();
+                    }
                 }
 
-                if (tipe_barang.equals("1")) {
-                    AlertDialog.Builder adb = new AlertDialog.Builder(TambahPersediaanActivity.this);
-                    adb.setTitle("Information");
-                    adb.setMessage("Adding mixing item?");
-                    adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intn = new Intent(TambahPersediaanActivity.this, RacikActivity.class);
-                            intn.putExtra("kode_barang", edkode_barang.getText().toString());
-                            intn.putExtra("nama_barang", ednama_barang.getText().toString());
-                            startActivity(intn);
-                        }
-                    });
-                    adb.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    adb.setCancelable(false);
-                    adb.show();
-                }
 
             }
         });
