@@ -69,8 +69,8 @@ public class CetakStruk extends AppCompatActivity implements ReceiveListener {
         btBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(getApplicationContext(),hasilStruk,Toast.LENGTH_LONG).show();
+                finish();
+                //Toast.makeText(getApplicationContext(),hasilStruk,Toast.LENGTH_LONG).show();
 
             }
         });
@@ -244,7 +244,7 @@ public class CetakStruk extends AppCompatActivity implements ReceiveListener {
                     }else{
                         runOnUiThread(new Runnable() {
                             public synchronized void run() {
-                                Toast.makeText(getApplicationContext(),e.toString() +" 6",Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getApplicationContext(),e.toString() +" 6",Toast.LENGTH_LONG).show();
                                 ShowMsg.showException(e, "disconnect", mContext);
                             }
                         });
@@ -254,7 +254,7 @@ public class CetakStruk extends AppCompatActivity implements ReceiveListener {
                     runOnUiThread(new Runnable() {
                         public synchronized void run() {
                             ShowMsg.showException(e, "disconnect", mContext);
-                            Toast.makeText(getApplicationContext(),e.toString() +" 7",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(),e.toString() +" 7",Toast.LENGTH_LONG).show();
                         }
                     });
                     break;
@@ -280,12 +280,12 @@ public class CetakStruk extends AppCompatActivity implements ReceiveListener {
             Cursor c = db.rawQuery("SELECT host_sync FROM pengaturan WHERE id=1", null);
             c.moveToFirst();
             mPrinter = new Printer(Integer.parseInt(c.getString(0)),Printer.MODEL_ANK,mContext);
-            Toast.makeText(getApplicationContext(),Integer.parseInt(c.getString(0)) +" 4",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),Integer.parseInt(c.getString(0)) +" 4",Toast.LENGTH_LONG).show();
             c.close();
             db.close();
         }
         catch (Exception e) {
-            Toast.makeText(getApplicationContext(),e.toString() +" 4",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),e.toString() +" 4",Toast.LENGTH_LONG).show();
             ShowMsg.showException(e, "Printer", mContext);
             return false;
         }
@@ -312,7 +312,7 @@ public class CetakStruk extends AppCompatActivity implements ReceiveListener {
                     getEposExceptionText(((Epos2Exception) e).getErrorStatus()),
                     "method",
                     "connect");
-            Toast.makeText(getApplicationContext()," 5 \n"+msg,Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext()," 5 \n"+msg,Toast.LENGTH_LONG).show();
             ShowMsg.showException(e, "connect", mContext);
             return false;
         }
@@ -335,7 +335,7 @@ public class CetakStruk extends AppCompatActivity implements ReceiveListener {
         }
         catch (Exception e) {
             mPrinter.clearCommandBuffer();
-            Toast.makeText(getApplicationContext(),e.toString() +" 3",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),e.toString() +" 3",Toast.LENGTH_LONG).show();
             ShowMsg.showException(e, "sendData", mContext);
             try {
                 mPrinter.disconnect();

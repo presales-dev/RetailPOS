@@ -8,7 +8,7 @@ import retrofit2.http.POST;
 
 interface APIInterface {
     @Headers({"Content-Type: application/x-www-form-urlencoded",
-            "X-Auth-Token: e7dotfHSpEcxCEUCgWto9BInyx8fIAvc"})
+            "X-Auth-Token:e7dotfHSpEcxCEUCgWto9BInyx8fIAvc"})
     //@Multipart
     @FormUrlEncoded //we use formUrlEncoded
     @POST("serial.do?method=validateSerial")

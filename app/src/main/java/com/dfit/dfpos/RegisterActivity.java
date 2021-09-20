@@ -57,8 +57,8 @@ public class RegisterActivity extends AppCompatActivity {
         bserial=findViewById(R.id.btCekSerial);
         dbo=new Dblocalhelper(this);
 
-        bsimpan.setEnabled(true);
-        bserial.setEnabled(false);
+        bsimpan.setEnabled(false);
+        bserial.setEnabled(true);
         aggreementpopup();
         simpan();
 
@@ -66,15 +66,16 @@ public class RegisterActivity extends AppCompatActivity {
         bserial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!cekisianserial()){
+                if(cekisianserial()){
                     if (checkValidation()) {
-                        if (CommonMethod.isNetworkAvailable(RegisterActivity.this))
-                            verfySerial(edserial.getText().toString(), ednohp.getText().toString(),countryID);
-                        else
+                        if (CommonMethod.isNetworkAvailable(RegisterActivity.this)) {
+                            verfySerial(edserial.getText().toString(), ednohp.getText().toString(), countryID);
+                        }else {
                             CommonMethod.showAlert("Internet Connectivity Failure", RegisterActivity.this);
+                        }
                     }
                 }else{
-
+                    Toast.makeText(getApplicationContext(), "Salah", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -172,7 +173,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
     private boolean cekisianserial(){
-        if(isEditTextEmpty(ednama_usaha) && isEditTextEmpty(edalamat) && isEditTextEmpty(ednohp) && isEditTextEmpty(edemail) && isEditTextEmpty(edserial)){
+        if(isEditTextEmpty(ednama_usaha) && isEditTextEmpty(edalamat) && isEditTextEmpty(edemail) && isEditTextEmpty(ednohp) && isEditTextEmpty(edserial)){
             return true;
         }else{
             return false;
@@ -240,7 +241,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!cekisianregis() && !cekisianserial()) {
 
                 } else {
-                    if(!bserial.isEnabled()){// release jadi edserial
+                    if(!edserial.isEnabled()){// release jadi edserial
                         if(edpassword.getText().toString().equals(edrepassword.getText().toString())) {
                             SQLiteDatabase db = dbo.getWritableDatabase();
                             db.beginTransaction();
