@@ -149,7 +149,7 @@ public class CetakStruk extends AppCompatActivity implements ReceiveListener {
         //tes.setText(hasilStruk);
         try {
             mPrinter.addTextAlign(Printer.ALIGN_CENTER);
-            mPrinter.addTextSize(3,3);
+            mPrinter.addTextSize(2,2);
             mPrinter.addTextSmooth(Printer.TRUE);
             mPrinter.addText(c.getString(0)+"\n");
             mPrinter.addFeedLine(1);

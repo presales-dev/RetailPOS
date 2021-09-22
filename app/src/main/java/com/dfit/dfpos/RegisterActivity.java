@@ -67,15 +67,20 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cekisianserial()){
-                    if (checkValidation()) {
-                        if (CommonMethod.isNetworkAvailable(RegisterActivity.this)) {
-                            verfySerial(edserial.getText().toString(), ednohp.getText().toString(), countryID);
-                        }else {
-                            CommonMethod.showAlert("Internet Connectivity Failure", RegisterActivity.this);
-                        }
+                    if (CommonMethod.isNetworkAvailable(RegisterActivity.this)) {
+                        verfySerial(edserial.getText().toString(), ednohp.getText().toString(), countryID);
+                        /*Toast.makeText(RegisterActivity.this, "Success to Verify ", Toast.LENGTH_SHORT).show();
+                        edserial.setEnabled(false);
+                        ednohp.setEnabled(false);
+                        bserial.setText("Verified!");
+                        bserial.setEnabled(false);
+                        edemail.setEnabled(false);
+                        bsimpan.setEnabled(true);*/
+                    }else {
+                        CommonMethod.showAlert("Internet Connectivity Failure", RegisterActivity.this);
                     }
                 }else{
-                    Toast.makeText(getApplicationContext(), "Salah", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Periksa kembali kolom isian", Toast.LENGTH_SHORT).show();
                 }
             }
         });

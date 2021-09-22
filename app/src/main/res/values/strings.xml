@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Epson Retail POS</string>
+    <string name="app_name">EpsonPOS</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
@@ -335,7 +335,7 @@
     <string name="ok">Oke</string>
     <string name="password_incorrect">Proses Gagal, Password tidak cocok!</string>
     <string name="termsofuse">
-These Terms of Use, together with the documents referenced herein (collectively the "Terms"), apply to the mobile application named "Retail POS" (the "App"). PT Epson Indonesia (hereinafter referred to as "EIN" and/or "we") permits you to use the App in connection with the use of the Epson TM Printer (the “Purpose”) and subject to these Terms and any applicable rules applied by and Google Inc. ("Play Store Rules") with respect to the use of the Google Play Store (the “Play Store”). You (hereinafter referred to as "you" and/or the “App user”) may only use the App in accordance with these Terms.
+These Terms of Use, together with the documents referenced herein (collectively the "Terms"), apply to the mobile application named "EpsonPOS" (the "App"). PT Epson Indonesia (hereinafter referred to as "EIN" and/or "we") permits you to use the App in connection with the use of the Epson TM Printer (the “Purpose”) and subject to these Terms and any applicable rules applied by and Google Inc. ("Play Store Rules") with respect to the use of the Google Play Store (the “Play Store”). You (hereinafter referred to as "you" and/or the “App user”) may only use the App in accordance with these Terms.
 
 1.	IMPORTANT NOTICES:
 
